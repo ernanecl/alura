@@ -14,31 +14,31 @@ Um modelo de linguagem como o Gemini, conceitualmente, dentro do mundo de IA, te
 
 ## Modulo 2: Melhores Técnicas em Engenharia de Prompt
 
-Dicas:
+### Dicas:
     - Detalhar bem o que você está buscando dentro do Gemini
         Modelo não recomendado: "Crie uma campanha de viagem para o Japão.
         Modelo recomendado: "Aja como um agente de marketing. Crie uma campanha de viagem para o Japão focada em brasileiros que se interessam pela cultura de artes marciais e samurais. Liste os principais pontos turisticos que os viajantes irão visitar no Japão que tenham relação com esses temas.
     
     * No modelo recomendado, podemos ser ainda mais especificos, solicitando uma cidade especifica (Tokio), hotéis, restaurantes e outros pontos relevantes para busca.
     
-
+    
     - Dividir tarefa muito complexa em tarefas menores
         1: análise todos os pontos turísticos que estão relacionados aos samurais e artes marciais em uma viagem ao Japão
         2: liste quais são os mais relevante e próximo da cidade de Tokio
         3: encontre hoteis próximos a esses pontos turisticos
     
     * Essa dica pode ser feito em um unico comando de prompt ou vários comandos de prompt, cada escolha feita pode gerar resultados finais diferentes, na escolha da segunda opção seu próximo passo pode ser influenciado de acordo com a resposta do comando anterior 
-
+    
     
     - Solicitar uma justificativa do resultado gerado
         Seguindo a mesma dica anterior, após o Gemini responder a primeira etapa, podemos solicitar uma justificativa porque daquela resposta
-
+    
     
     - Refinar muito bem o que está buscando com um alto grau de acuracia, grau de certeza e o grau de realidade
         Modelo tem muito conhecimento para gerar muitos coisa e com a falta de precisão na busca, pode gerar o conceito "ALUCINA"
 
 
-As quatro camadas (perspectivas) do Gemini:
+### As quatro camadas (perspectivas) do Gemini:
     - Engenharia de Prompt
     - Parâmetros de execução
         são os parâmetros que podem ser definidos que o modelo pode considerar quando ele está compondo a resposta
@@ -48,9 +48,9 @@ As quatro camadas (perspectivas) do Gemini:
         Redução intrínseca do modelo para informações inventadas ou alucinadas
 
 
-Estratégias para melhores resultados para usar o Prompt Gemini (AI Studio)
+### Estratégias para melhores resultados para usar o Prompt Gemini (AI Studio)
     - Zero-shot Prompting
-        Sem exemplos quando executa um comando no prompt
+        Sem usar exemplos quando executa um comando no prompt
 
         Exemplo:
             Usuário {
