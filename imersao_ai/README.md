@@ -96,5 +96,9 @@ Estratégias para melhores resultados para usar o Prompt Gemini (AI Studio)
     - self-consistency
         auto consistencia é usado para dados mais precisas, pode ser usado na frequência dos dados
 
+### Links
+    [Links](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompt-design-strategies?hl=pt-br)
+    [Prompt-design-strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompt-design-strategies?hl=pt-br)
+
 
 ## Modulo 3: Explorando os parâmetros do Google AI Studio
