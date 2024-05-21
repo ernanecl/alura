@@ -103,21 +103,9 @@ Um modelo de linguagem como o Gemini, conceitualmente, dentro do mundo de IA, te
     auto consistencia é usado para dados mais precisas, pode ser usado na frequência dos dados
 
 ### Links
-    [Links](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompt-design-strategies?hl=pt-br)
-    [Prompt-design-strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompt-design-strategies?hl=pt-br)
+1. [Prompt-design-strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompt-design-strategies?hl=pt-br)
 
-    1. [Títulos](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#títulos)
-    2. [Ênfase](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#ênfase)
-    3. [Linha Horizontal](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#linha-horizontal)
-4. [Citações](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#citações)
-5. [Listas](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#listas)
-    6. [Códigos](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#códigos)
-7. [Links](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#links)
-8. [Imagens](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#adicionando-imagens)
-9. [Links em imagens](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#links-em-imagens)
-10. [Tabelas](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#tabela)
-11. [HTML Embutido](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#html-embutido)
-12. [Créditos](https://github.com/gustavo-mendel/guia-definitivo-de-markdown/blob/master/README.md#créditos)
+
 
 
 ## Modulo 3: Explorando os parâmetros do Google AI Studio
