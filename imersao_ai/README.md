@@ -18,7 +18,7 @@ Um modelo de linguagem como o Gemini, conceitualmente, dentro do mundo de IA, te
 
 
 
-#
+
 ## Modulo 2: Melhores Técnicas em Engenharia de Prompt
 
 ### Dicas:
