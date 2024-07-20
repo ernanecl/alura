@@ -1,5 +1,17 @@
 # Imersão IA - 2 edição
 
+    Gemini é um modelo LLM (Large Language Model – modelo de linguagem grande) desenvolvido pela Google DeepMind.
+
+    Trabalha com linguagem de modelo, é trabalhar com uma área da inteligência artificial chamada de NLP (Natural Language Processing - Processamento de Lunguagem Natural).
+
+
+## Tecnologias
+
+    Gemini
+    AI Studio
+    Google Colab
+
+
 ## Modulo 1: Mergulhando no Gemini, a IA do Google
 
 O ecossistema Gemini é seja um switch de desenvolvimento ou conjunto de opções de ferramentas para desenvolvimento para diferentes cenários.
@@ -102,10 +114,99 @@ Um modelo de linguagem como o Gemini, conceitualmente, dentro do mundo de IA, te
 #### 5. self-consistency
     auto consistencia é usado para dados mais precisas, pode ser usado na frequência dos dados
 
-### Links
-1. [Prompt-design-strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompt-design-strategies?hl=pt-br)
 
 
 
 
 ## Modulo 3: Explorando os parâmetros do Google AI Studio
+
+No ambiente do AI Studio, temos 3 opções na criação de um novo prompt [Create_new]()
+
+
+##### Chat prompt
+   
+    É semelhante ao prompt usado no Gemini, o IA Studio guardando o histórico e contexto das conversas como os exemplos usados anteriormente.
+
+
+##### Freeform prompt
+
+    Uma maneira de embutir um prompt maior dentro de uma aplicação/solução (tem algo mais elaborado) e não tem necessidade de ter uma interação de chat, com Freeform agrega as perguntas em requisição única.
+
+
+##### Structured prompt
+
+    É a habilidade que tem na interface do AI Studio de montar uma estrutura tabular para usar a estratégia de few-shot prompting.
+
+
+#### Visão computacional
+
+    Dentro de machine learning tem uma área chamada de "Visão computacional", são as soluções que lindam com imagem, vídeos e identificação de objetos fornecidos por imagens.
+
+
+#### Detecção de objeto
+    
+    AI generativa tem um tratamento muito mais rápido em questões de segundos.
+
+
+#### System instructions
+    
+    Localizado acima do chat da interface do Google IA Studio, é um diretriz ou regra de como o modelo tem que se comportar/agir, independente de qual comando prompt é inserido.
+
+    Exemplo:
+        Você é um assistente muito sarcástico e que usa muitas gírias
+
+
+#### Model
+    
+    Está localizado do lado direito da tela do AI Studio.
+
+    Gemini 1.0 Pro - pode usar as diferentes modalidades, assim como 1.5, porém tem algumas opções adicionais de customização dessa geração de prompt.
+    Gemini 1.5 Flash
+    Gemini 1.5 Pro - mais robusto, mais capacidade de contexto, ingestão de informação, mas no momento que está dentro do AI Studio, não é possível fazer uma customização de parâmetros.
+    Gemini 1.0 Pro 001 (Tuning)
+
+
+#### Temperature
+    
+    Está localizado do lado direito da tela do AI Studio.
+    
+    Quando usar o valor igual a 0 ou próximo a 0, é para indicar que p contexto mais conservador ou mais especifica em relação ao controle, é para o modelo não usar outra característica que não seja a maior probabilidade.
+    No caso de colocar no 1 ou próximo de 1, são usados para contextos mais criativos, o modelo usará textos diferentes para o mesmo texto inserido no prompt.
+
+
+#### Add stop sequence
+    
+    Está localizado do lado direito da tela do AI Studio.
+
+    Em um contexto controlado de geração de conteúdo, pode ser definido que caracteres ou sequencia a ser usada para o modelo marcar como final da criação, podendo ser útil para reprocessar o resultado para embutir em uma página ou artigo, por exemplo, deixando mais claro de onde está finalizando.
+
+
+#### Safety settings
+    
+    Está localizado do lado direito da tela do AI Studio.
+
+    É para ajustar o nível de segurança Harassment (Assédio), Hate (Ódio), Sexually Explicit (Sexualmente Explicito) e Dagerous Content (Conteúdo Perigoso).
+
+
+#### Advanced settings
+    
+    Está localizado do lado direito da tela do AI Studio.
+
+    Top K - diminuição do glossário de palavras com o mesmo significa, sem escolher as palavras especifica, como um controle do uso de determinadas palavras, por exemplo, "mas", "porém", "entretanto", pode limitar quantas palavras dessa mesma categoria vai ser usada.
+    
+    Top P - também é uma seleção de palavras, porém ao invés de ser numérica como o top K, é usada probabilidade. Define a probabilidade agregada definida para trabalhar, isto é a soma das probabilidades de cada palavra e qual é a soma máxima toleravel.
+
+    Temperature - segue a mesma ideia da Temperature anterior, quanto igual a 0 ou mais próxima de 0, é usada a probabilidade da palavra que vai se mais usada e quando for igual a 1 ou próximo de 1, é uma escolha aleatória, podendo ser qualquer uma das palavras disponíveis.
+
+#### API Key
+
+    É uma forma de identificar, por exemplo, um computador se identificar com outro (uma chave não compartilhada).
+
+
+## Links
+
+1. [Prompt-design-strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompt-design-strategies?hl=pt-br)
+2. [Google-gallery](https://ai.google.dev/examples?hl=pt-br)
+3. [Entendendo a Tokenização nos Modelos de Inteligência Artificial](https://www.dio.me/articles/entendendo-a-tokenizacao-nos-modelos-de-inteligencia-artificial)
+4. [Google-AI-Studio](https://aistudio.google.com/)
+5. [Google-Gemini](https://gemini.google.com/)
