@@ -35,6 +35,8 @@ No Windows, o comando é:
 nome_do_ambiente\Scripts\activate
 ```
 
+&nbsp;
+
 Quando o ambiente virtual está ativo, qualquer pacote instalado com `pip` será isolado dentro desse ambiente, sem afetar o sistema global.
 
 Para desativar o ambiente virtual, basta usar o comando deactivate. Isso retorna o terminal ao ambiente global do sistema.
@@ -122,6 +124,8 @@ Instalando Python:
 sudo apt install python3
 ```
 
+&nbsp;
+
 Verificando se pacote `pipx` esta instaldo:
 
 ```BASH
@@ -134,12 +138,17 @@ Instalando pacote `pipx`:
 sudo apt install pipx
 ```
 
+&nbsp;
 
 Instalando `Poetry`:
 
 ```BASH
 sudo pipx install poetry
+
+sudo apt install python3-poetry
 ```
+
+&nbsp;
 
 Configuracoes adicionais:
 
@@ -163,6 +172,8 @@ effect.
 
 Otherwise pipx is ready to go! ✨ 🌟 ✨
 ```
+
+&nbsp;
 
 Para atualizar ou desinstalar o `Poetry`:
 
@@ -256,4 +267,12 @@ def hello_world():
 
 if __name__ == '__main__':
     app.run(debug=True)
+```
+
+&nbsp;
+
+Executando o aplicativo `Flask`:
+
+```BASH
+poetry run python app.py
 ```
