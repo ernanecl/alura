@@ -18,5 +18,100 @@ def configurar_tempo_foco():
         print("Tempo configurado para", tempo, "minutos.")
     else:
         print("Valor inválido. Configure um tempo entre 25 e 45 minutos.")
+
+##############################################################################################
+        
+numero = -1
+
+try:
+    for _ in range(3):  # Supondo um número máximo de tentativas (3) arbitrário
+        numero = int(input("\nDigite um número positivo: "))
+        print('\nnumero(s) invalido(s), numero(s) menor(es) que zero\n')
+        
+        if numero > 0:
+            print(f'Você digitou: {numero}\n')
+            break
+except:
+    print('\nopcao invalida')
+
+
+numero = -1
+
+try:
+    while numero <= 0:
+        numero = int(input("Digite um número positivo: "))
+        
+    print("Você digitou:", numero)
+
+except:
+    print('\nopcao invalida')
+
+##############################################################################################
+
+projetos = ["website", "jogo", "análise de dados", None, "aplicativo móvel"]
+
+try:
+  for projeto in projetos:
+    print(f"Projeto: {projeto}")
+except Exception as e:
+  print("Ocorreu um erro:", e)
+
+
+for i in range(len(projetos)):
+  try:
+    print(f"Projeto: {projetos[i]}")
+  except IndexError:
+    print("Índice fora do alcance.")
+
+
+for projeto in projetos:
+  if projeto:
+    print(f"Projeto: {projeto}")
+  else:
+    print("Projeto não disponível.")
+
+
+for projeto in projetos:
+  try:
+    print(f"Projeto: {projeto}")
+  except TypeError:
+    print("Projeto não disponível.")
+
+    
+##############################################################################################
+
+encomendas = input("Digite os números das encomendas: ")
+for encomenda in encomendas:
+    print(encomenda)
+
+encomendas = input("Digite os números das encomendas separados por vírgula: ").split(',')
+try:
+    for encomenda in encomendas:
+        print(int(encomenda))
+except ValueError:
+    print("Uma das entradas não é um número válido.")
+
+encomendas = [123, 456, 789]
+for encomenda in encomendas:
+    print(encomenda)
+
+
+encomendas = [123, "456", 789]
+for i in range(len(encomendas)):
+    try:
+        print(int(encomendas[i]))
+    except ValueError:
+        print(f"A encomenda {encomendas[i]} não é um número válido.")
+
+
+try:
+    encomendas = []
+    for i in range(3):
+        encomendas.append(input(f"Digite o número da encomenda {i+1}: "))
+except Exception as e:
+    print(f"Erro: {e}")
+
+##############################################################################################
+
 '''
 

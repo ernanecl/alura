@@ -1,7 +1,7 @@
 # MODULOS E FUNCOES
 
 # Exercicio 1
-'''print('1 - Solicite ao usuário que insira um número e, em seguida, use uma estrutura if else para determinar se o número é par ou ímpar.')
+print('1 - Solicite ao usuário que insira um número e, em seguida, use uma estrutura if else para determinar se o número é par ou ímpar.')
 
 numero_escolhido = int(input('Escolha um numero: '))
 
@@ -35,8 +35,6 @@ if login == 'Aluno' and password == 'Alura':
     print("Acesso permitido!")
 else:
     print("Acesso negado.")
-
-'''
 
 # Exercicio 4
 print('''4 - Solicite ao usuário as coordenadas (x, y) de um ponto qualquer
