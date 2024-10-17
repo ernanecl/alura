@@ -113,5 +113,38 @@ except Exception as e:
 
 ##############################################################################################
 
+livro = {
+    'titulo': 'Aprendendo Python',
+    'autor': 'Fabrício Silva',
+    'ISBN': '12345',
+    'preco': 59.90,
+    'em_estoque': True
+}
+
+print(livro)
+
+livro['preco'] = 69.90
+
+print(livro)
+
+livro.update({'preco' : 79.90})
+
+print(livro)
+
+livro.get('preco', 89.90)
+
+print(livro)
 '''
 
+##############################################################################################
+
+credenciais_clientes = {
+    'alice123': {'username': 'alice123', 'password': 'alic3P@ssw0rd', 'status': 'active'},
+    'bob456': {'username': 'bob456', 'password': 'b0bP@ssword!', 'status': 'inactive'},
+    'charlie789': {'username': 'charlie789', 'password': 'Ch@rlieP@ss9', 'status': 'active'}
+}
+
+# verificar o status de um usuário chamado 'bob456' e, caso esteja inativo, enviar um alerta.
+
+alerta = 'Enviar alerta!' if credenciais_clientes['bob456']['status'] == 'inactive' else 'Sem alerta'
+print(alerta)
