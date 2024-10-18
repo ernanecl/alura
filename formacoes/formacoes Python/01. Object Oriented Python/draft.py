@@ -134,7 +134,7 @@ print(livro)
 livro.get('preco', 89.90)
 
 print(livro)
-'''
+
 
 ##############################################################################################
 
@@ -148,3 +148,35 @@ credenciais_clientes = {
 
 alerta = 'Enviar alerta!' if credenciais_clientes['bob456']['status'] == 'inactive' else 'Sem alerta'
 print(alerta)
+
+
+
+##############################################################################################
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def cumprimentar(self):
+        print(f"Olá, meu nome é {self.nome} e tenho {self.idade} anos.")
+
+pessoa1 = Pessoa("Alice", 30)
+print(dir(pessoa1))
+print(vars(pessoa1))
+
+
+##############################################################################################
+
+'''
+
+class Musica:
+    nome = ''
+    artista = ''
+    duracao = int
+
+musica1 = Musica()
+musica1.nome = 'Bohemian Rhapsody'
+musica1.duracao = 355
+
+print(f'Música: {musica1.nome} - Banda: {musica1.artista} - {musica1.duracao} segundos')
