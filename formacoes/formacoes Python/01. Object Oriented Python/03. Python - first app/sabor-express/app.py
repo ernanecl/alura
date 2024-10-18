@@ -5,17 +5,27 @@ restaurantes = [{'nome':'Praca', 'categoria':'Japonesa', 'ativo':False},
                 {'nome':'Cantina', 'categoria':'Arabe', 'ativo':False}]
 
 def exibir_nome_app():
+    '''Exibe o nome do app na tela'''
+
     print('''
         Sabor Express      
         ''')
 
 def exibir_opcoes():
+    '''Exibi os itens disponiveis no menu principal'''
+
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
     print('3. Alternar estado restaurante')
     print('4. Sair\n')
 
 def exibir_subtitulo(texto):
+    ''' Exibe um subtítulo na tela 
+    
+    Inputs:
+    - texto: str - O texto do subtítulo
+    '''
+    
     os.system('clear')
     linha = '*' * len(texto)
     print(linha)
@@ -24,11 +34,28 @@ def exibir_subtitulo(texto):
     print()
 
 def voltar_ao_menu_principal():
+    '''Solicita uma tecla para voltar ao menu principal 
+    
+    Outputs:
+    - Retorna ao menu principal
+    '''
+    
     input('\nDigite qualquer tecla para voltar ao menu ')
     print()
     main()
     
 def cadastrar_novo_restaurante():
+    '''Essa função é responsável por cadastrar um novo restaurante
+    
+    Inputs:
+    - Nome do restaurante
+    - Categoria
+    - Ativo
+
+    Output:
+    - Adiciona novo restaurante, categoria e estado a lista de restaurante
+    '''
+    
     exibir_subtitulo('Cadastro de novos restaurantes')
 
     nome_restaurante = input('Digite o nome do restaurante para cadastro: ')
@@ -42,6 +69,12 @@ def cadastrar_novo_restaurante():
     voltar_ao_menu_principal()
 
 def listar_restaurante():
+    ''' Lista os restaurantes presentes na lista 
+    
+    Outputs:
+    - Exibe a lista de restaurantes na tela
+    '''
+
     exibir_subtitulo('Listando restaurantes')
 
     print(f'{' Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status do restaurante')
@@ -54,6 +87,12 @@ def listar_restaurante():
     voltar_ao_menu_principal()
 
 def alternar_estado_restaurante():
+    ''' Altera o estado ativo/desativado de um restaurante 
+    
+    Outputs:
+    - Exibe mensagem indicando o sucesso da operação
+    '''
+
     exibir_subtitulo('Alternando estado restaurante')
     nome_restaurante = input('Digite o nome do restaurante que deseja alterar o estado: ')
     restaurante_encontrado = False
@@ -70,13 +109,27 @@ def alternar_estado_restaurante():
     voltar_ao_menu_principal()
 
 def finalizar_app():
+    '''Essa função é responsável por encerrar o app'''
+
     exibir_subtitulo('Encerrando App')
 
 def opcao_invalida():
+    ''' Exibe mensagem de opção inválida e retorna ao menu principal 
+    
+    Outputs:
+    - Retorna ao menu principal
+    '''
+
     exibir_subtitulo('Opcao invalida')
     voltar_ao_menu_principal()
 
 def escolher_opcao():
+    ''' Solicita e executa a opção escolhida pelo usuário 
+    
+    Outputs:
+    - Executa a opção escolhida pelo usuário
+    '''
+
     try:
         opcao_escolhida = int(input('Escolha uma opcao: '))
 
@@ -94,6 +147,8 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
+    '''Função principal que inicia o programa'''
+
     os.system('clear')
     exibir_nome_app()
     exibir_opcoes()
