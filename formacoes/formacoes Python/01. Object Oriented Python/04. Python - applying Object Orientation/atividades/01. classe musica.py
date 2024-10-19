@@ -25,3 +25,13 @@ print(dir(musicas))
 print(vars(musicas[0]))
 print(vars(musicas[1]))
 print(vars(musicas[2]))
+
+class Musica2:
+    def __init__(self, nome2='', artista2='', genero2=0):
+        self.nome2 = nome2
+        self.artista2 = artista2
+        self.genero2 = genero2
+
+musica4 = Musica(nome2='Eyes Closed', artista2='Imagine Dragons', genero2='Rock')
+musica5 = Musica(nome2='Bangarang', artista2='Skrillex', genero2='Eletronic')
+musica6 = Musica(nome2='Marry you', artista2='Bruno Mars', genero2='Pop')

@@ -168,7 +168,6 @@ print(vars(pessoa1))
 
 ##############################################################################################
 
-'''
 
 class Musica:
     nome = ''
@@ -180,3 +179,26 @@ musica1.nome = 'Bohemian Rhapsody'
 musica1.duracao = 355
 
 print(f'Música: {musica1.nome} - Banda: {musica1.artista} - {musica1.duracao} segundos')
+
+##############################################################################################
+
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def __str__(self):
+        return f"Pessoa: {self.nome}, {self.idade} anos"
+
+    def __repr__(self):
+        return f"Pessoa(nome='{self.nome}', idade={self.idade})"
+
+pessoa1 = Pessoa("Sofia", 30)
+print(pessoa1)  # Saída: Pessoa: Sofia, 30 anos
+print(repr(pessoa1))  # Saída: Pessoa(nome='Sofia', idade=30)
+
+
+##############################################################################################
+
+'''
