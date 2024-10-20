@@ -22,7 +22,7 @@ Topicos trabalhados no capitulo
 
 ##### OO Sabor Express
 
-Neste capitulo iniciou com a criacao de um novo arquivo chamado `restaurante.py`, nele trabalhou com as funcionalidades basicas sobre **classes**.
+Nessa etapa com a criacao de um novo arquivo chamado `restaurante.py`, nele trabalhou com as funcionalidades basicas sobre **classes**.
 
 ```PY
 class Restaurante:
@@ -297,7 +297,7 @@ Topicos trabalhados no capitulo
 
 ##### OO Sabor Express
 
-Nessa etapa trabalhou com metodos especiais `__init__` e `__str__`, alem de criar o proprio metodo.
+Nessa etapa trabalha com metodos especiais `__init__` e `__str__`, alem de criar o proprio metodo.
 
 ```PY
 class Restaurante:
@@ -578,4 +578,229 @@ Cliente.listar_clientes()
 
 &nbsp;
 &nbsp;
+
+#### 03 - Property e metodos de classe
+
+Topicos trabalhados no capitulo
+
+- Property
+- Aprofundando em propriedades
+- Metodos de classe
+
+&nbsp;
+
+##### OO Sabor Express
+
+Nessa etapa trabalha com
+
+&nbsp;
+
+##### Property e self._attribute
+
+***Entendendo self._ativo e @property no código***
+
+`self._ativo`
+
+- **O que é:** É um *atributo* da *classe Restaurante* que indica se o restaurante está ativo ou não.
+- **Por que o underline?** O *underline (_)* antes do nome do *atributo* é uma convenção em *Python* para indicar que o *atributo* é *privado* ou *protegido*, ou seja, não é destinado a ser acessado diretamente de fora da classe. Essa convenção ajuda a evitar modificações acidentais no estado interno do objeto.
+- **Por que usar um atributo privado?** Ao encapsular o estado do *objeto* (se o restaurante está ativo ou não) dentro de um *atributo privado*, garante que as modificações nesse estado sejam feitas de forma controlada, através de *métodos específicos da classe*. Isso torna o seu código mais seguro e fácil de manter.
+
+&nbsp;
+
+`@property`
+
+- **O que é:** É um decorador em *Python* que permite que um *método* seja acessado como se fosse um *atributo*.
+- **Qual a sua função?** No seu código, o decorador `@property` transforma o *método ativo* em uma propriedade. Isso significa que você pode acessar o valor desse *atributo* usando a sintaxe `restaurante.ativo`, mas na verdade, o que está acontecendo por trás das cortinas é uma chamada ao *método ativo*.
+- **Por que usar @property?**
+    - **Encapsulamento:** Permite ocultar a implementação interna do *atributo*, oferecendo uma interface mais limpa para o usuário da *classe*.
+    - **Validação:** Você pode adicionar lógica de validação dentro do *método ativo* para garantir que o valor retornado seja sempre válido.
+    - **Cálculos:** Permite que calcule o valor do *atributo* dinamicamente, em vez de armazená-lo diretamente.
+
+&nbsp;
+
+***Como funciona o código:***
+
+- **Atributo privado:** O atributo `_ativo` armazena o estado real do restaurante (*True* ou *False*).
+- **Propriedade ativo:** A propriedade *ativo* retorna uma *string* ('*ativo*' ou '*desativo*') com base no valor de `_ativo`. Essa *string* é mais amigável para o usuário do que um valor *booleano*.
+- **Método `listar_restaurantes`:** Esse *método* itera sobre a *lista de restaurantes* e imprime informações sobre cada um, incluindo o *status* (*ativo* ou *desativo*) usando a propriedade *ativo*.
+
+&nbsp;
+
+***Benefícios dessa abordagem:***
+
+- **Leiturabilidade:** O código fica mais fácil de entender, pois o status do restaurante é representado por uma string clara ('ativo' ou 'desativo').
+- **Flexibilidade:** Você pode adicionar mais lógica ao *método ativo* no futuro, como por exemplo, verificar se o restaurante está aberto em um determinado horário.
+- **Manutenção:** Ao encapsular o estado do objeto, você facilita a manutenção do código, pois as mudanças no comportamento do atributo ativo podem ser feitas em um único lugar.
+
+&nbsp;
+
+***Em resumo:***
+
+- `self._ativo` armazena o estado interno do *objeto* de forma *privada*.
+- `@property` transforma o *método ativo* em uma propriedade, permitindo que você acesse o `_ativo` de forma mais natural e legível.
+
+&nbsp;
+
+***Exemplo de uso:***
+
+```PY
+restaurante_praca.ativo = True  # Isso chama a propriedade e muda o valor de _ativo para True
+print(restaurante_praca.ativo)  # Imprime 'ativo'
+```
+
+**Observação:** Embora não esteja presente no código, também pode definir um `setter` para a propriedade *ativo* usando o decorador `@ativo.setter`. Isso permitiria que atribuir novos valores ao *atributo* `_ativo` de forma controlada.
+
+&nbsp;
+
+***Exemplo com setter:***
+
+```PY
+@ativo.setter
+def ativo(self, valor):
+    if isinstance(valor, bool):
+        self._ativo = valor
+    else:
+        raise ValueError("O valor deve ser um booleano")
+```
+
+Com essa implementação, garantiria que o *atributo* `_ativo` só possa receber valores *booleanos*.
+
+**Em resumo:**
+- O uso combinado de *atributos privados* e *propriedades* em *Python* é uma prática comum para *encapsular* o estado de um *objeto* e fornecer uma *interface* mais clara e segura para interagir com ele.
+
+&nbsp;
+
+##### Aprofundando em propriedades
+
+Aplicado os recursos `.title()`, `.upper()`, `_nome` e `_categoria`.
+
+- `.title()`: inicia a primeira letra em maiusculo.
+- `.upper()`: transforma todo o dado em letras maiusculas.
+- `_nome`: armazena o estado interno do *objeto* de forma *privada*.
+- `_categoria`: armazena o estado interno do *objeto* de forma *privada*.
+
+***Exemplo***
+
+```PY
+class Restaurante:
+    restaurantes = []
+
+    def __init__(self, nome, categoria):
+        self._nome = nome.title()
+        self._categoria = categoria.upper()
+        Restaurante.restaurantes.append(self)
+
+    def listar_restaurantes():
+        print(f'{'Nome restaurante'.ljust(20)} | Categoria')
+
+        for restaurante in Restaurante.restaurantes:
+            print(f'{restaurante._nome.ljust(20)} | {restaurante._categoria}')
+
+restaurante_praca = Restaurante('praca', 'Arabe')
+
+Restaurante.listar_restaurantes()
+
+# Saida:
+# Nome restaurante     | Categoria
+# Praca                | ARABE
+```
+&nbsp;
+
+##### Metodos de classes
+
+Foi aplicado o *decorador* `@classmethod`, o *parametro* `cls` e o novo *metodo* `alternar_estado()`.
+
+```PY
+class Restaurante:
+    restaurantes = []
+
+    def __init__(self):
+        self._ativo = False
+        Restaurante.restaurantes.append(self)
+
+    @classmethod
+    def listar_restaurantes(cls):
+        print('Status')
+
+        for restaurante in cls.restaurantes:
+            print(f'{restaurante.ativo}')
+
+    @property
+    def ativo(self):
+        return '⌧ ativo' if self._ativo else '☐ ativo'
+    
+    def alternar_estado(self):
+        self._ativo = not self._ativo
+
+restaurante1 = Restaurante()
+restaurante1.alternar_estado()
+
+Restaurante.listar_restaurantes()
+```
+
+&nbsp;
+
+***Entendendo `@classmethod` e `cls` em Python***
+
+**O que é `@classmethod`?**
+
+O *decorador* `@classmethod` em *Python* transforma um *método* de *classe* em um *método* que pode ser chamado diretamente na *classe*, sem a necessidade de *instanciar* um *objeto*. Em outras palavras, ele permite que acesse e modifique *atributos* de *classe* diretamente a partir da *classe*, sem precisar de uma *instância* específica.
+
+&nbsp;
+
+**O parâmetro cls**
+
+Quando você usa `@classmethod`, o primeiro *parâmetro do método*, por convenção, é chamado de `cls`. Ele representa a própria *classe*, não uma *instância* da *classe* como `self`.
+
+- **`self`:** Refere-se à *instância* específica de uma *classe*. É usado dentro dos *métodos* de *instância* para acessar os *atributos* e *métodos* daquela *instância* particular.
+- **`cls`:** Refere-se à *classe* em si. É usado dentro dos *métodos* de *classe* para acessar *atributos* e *métodos* da classe, ou para criar novas *instâncias* da *classe*.
+
+&nbsp;
+
+***Por que usar `@classmethod`?***
+
+- **Métodos de fábrica:** Criar *métodos* que retornam novas *instâncias* da *classe*, potencialmente com argumentos diferentes do *construtor* padrão.
+- **Métodos utilitários:** Implementar *métodos* que operam em toda a classe, como *métodos* para contar o número de *instâncias* ou para acessar *atributos* de *classe*.
+- **Métodos que não precisam de uma instância:** Criar *métodos* que podem ser chamados diretamente na *classe* sem a necessidade de criar um objeto.
+
+&nbsp;
+
+***Relacionamento entre `@classmethod` e `@property`***
+
+`@classmethod` e `@property` são *decoradores* com propósitos diferentes:
+
+- **`@classmethod`:** Transforma um *método* em um *método* de *classe*, permitindo o acesso à *classe* e seus *atributos*.
+- **`@property`:** Permite que um *método* seja acessado como se fosse um *atributo*, oferecendo um mecanismo para encapsular a lógica de acesso a dados.
+
+***Eles não têm uma relação direta, mas podem ser usados em conjunto:***
+
+- Uma *propriedade* pode chamar um *método* de *classe* para obter um valor.
+- Um *método* de *classe* pode usar *propriedades* para acessar os *atributos* de uma *instância*.
+
+&nbsp;
+
+***Analisando o código***
+
+No código, o *método* `listar_restaurantes` é um `@classmethod`.
+
+**Ele:**
+
+- **Não precisa de uma instância:** Pode ser chamado diretamente na *classe* `Restaurante`.
+- **Acessa a lista de restaurantes:** Usa `cls.restaurantes` para acessar a lista de todos os restaurantes, que é um *atributo* de *classe*.
+- **Imprime informações:** Imprime o status de cada restaurante.
+
+&nbsp;
+
+***Por que usar cls.restaurantes em vez de self.restaurantes?***
+
+Porque a lista de *restaurantes* é um *atributo* da *classe*, não de cada *instância*. Ao usar `cls.restaurantes`, garante que está acessando a lista compartilhada por todos os objetos da classe `Restaurante`.
+
+&nbsp;
+
+***Em resumo:***
+
+- `@classmethod` permite criar *métodos* que operam no nível da *classe*, não da *instância*.
+- `cls` representa a própria *classe* dentro de um *método de classe*.
+- `@property` permite que um *método* seja acessado como um *atributo*.
+
 &nbsp;
