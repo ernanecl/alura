@@ -10,9 +10,18 @@ O que sera trabalhado durante o treinamento:
 &nbsp;
 &nbsp;
 
+Para dar inicio ao treinamento, precisa organizar o ambiente para realizar as atividades.
+
+Iniciamos criando um *diretorio* `oo-sabor-express`, depois dentro desse mesmo *diretorio* criamos mais um *diretorio* chamado `modelos`.
+
+Apos a conclusao, criar um arquivo chamado `restaurante.py` para iniciar as atividades.
+
+&nbsp;
+&nbsp;
+
 ### 01 - Classes
 
-Topicos trabalhados no capitulo
+**Topicos do capitulo:**
 
 - Classes
 - Atributos de instancia
@@ -22,7 +31,7 @@ Topicos trabalhados no capitulo
 
 #### OO Sabor Express
 
-Nessa etapa com a criacao de um novo arquivo chamado `restaurante.py`, nele trabalhou com as funcionalidades basicas sobre **classes**.
+Versao final do *codigo* do capitulo:
 
 ```PY
 class Restaurante:
@@ -42,6 +51,8 @@ print(restaurantes)
 print(dir(restaurantes))
 print(vars(restaurantes[0]))
 ```
+
+Durante o capitulo, trabalha com a criacao de um novo arquivo chamado `restaurante.py`, nele trabalhou com as funcionalidades basicas sobre **classes**.
 
 &nbsp;
 
@@ -294,7 +305,7 @@ print(f'Nome: {restaurante_praca.nome}, Categoria: {restaurante_praca.categoria}
 
 ### 02 - Construtor e instanciando objetos
 
-Topicos trabalhados no capitulo
+**Topicos do capitulo:**
 
 - Construtor
 - Metodos especiais
@@ -304,7 +315,7 @@ Topicos trabalhados no capitulo
 
 #### OO Sabor Express
 
-Nessa etapa trabalha com metodos especiais `__init__` e `__str__`, alem de criar o proprio metodo.
+Versao final do *codigo* do capitulo:
 
 ```PY
 class Restaurante:
@@ -329,6 +340,8 @@ restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
 
 Restaurante.listar_restaurantes()
 ```
+
+Durante o capitulo, trabalha com metodos especiais `__init__` e `__str__`, alem de criar o proprio metodo.
 
 &nbsp;
 
@@ -596,7 +609,7 @@ Cliente.listar_clientes()
 
 ### 03 - Property e metodos de classe
 
-Topicos trabalhados no capitulo
+**Topicos do capitulo:**
 
 - Property
 - Aprofundando em propriedades
@@ -606,7 +619,7 @@ Topicos trabalhados no capitulo
 
 #### OO Sabor Express
 
-Nessa etapa trabalha com `@property`, `self._attribute`, `@classmethod`, `cls` e construcao do proprio *metodo*.
+Versao final do *codigo* do capitulo:
 
 ```PY
 class Restaurante:
@@ -643,6 +656,8 @@ restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
 
 Restaurante.listar_restaurantes()
 ```
+
+Durante o capitulo, trabalha com os recursos `@property`, `self._attribute`, `@classmethod`, `cls` e construcao do proprio *metodo*.
 
 &nbsp;
 
@@ -865,7 +880,7 @@ Porque a lista de *restaurantes* é um *atributo* da *classe*, não de cada *ins
 
 &nbsp;
 
-##### Exercicios
+#### Exercicios
 
 ```PY
 # EXERCICIO 1
@@ -1027,4 +1042,542 @@ conta1_cliente_banco2 = ClienteBanco2('Charlotte', 427, 43, 'franca', 'CEO')
 conta2_cliente_banco2 = ClienteBanco2('Emily', 98630, 21, 'alemanha', 'duble')
 
 print(f'{vars(conta1_cliente_banco2)}\n{vars(conta2_cliente_banco2)}\n')
+```
+
+&nbsp;
+&nbsp;
+
+### 04 - Importando classe e composicao
+
+**Topicos do capitulo:**
+
+- From e import
+- Criando classe de avaliacao
+- Composicao
+- Listando avaliacoes
+
+&nbsp;
+
+#### OO Sabor Express
+
+Versao final dos *codigos* do capitulo:
+
+**`restaurante.py`**
+
+```PY
+# oo-sabor-express/modelos/restaurante.py
+
+from modelos.avaliacao import Avaliacao
+
+class Restaurante:
+    restaurantes = []
+
+    def __init__(self, nome, categoria):
+        self._nome = nome.title()
+        self._categoria = categoria.upper()
+        self._ativo = False
+        self._avaliacao = []
+        Restaurante.restaurantes.append(self)
+
+    def __str__(self):
+        return f'{self._nome} | {self._categoria}'
+
+    @classmethod
+    def listar_restaurantes(cls):
+        print(f'{'Nome restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | {'Avaliacao'.ljust(20)} | Status')
+
+        for restaurante in cls.restaurantes:
+            print(f'{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {str(restaurante.media_avaliacao).ljust(20)} | {restaurante.ativo}')
+
+    @property
+    def ativo(self):
+        return '⌧ ativo' if self._ativo else '☐ ativo'
+    
+    def alternar_estado(self):
+        self._ativo = not self._ativo
+
+    def receber_avaliacao(self, cliente, nota):
+        avaliacao = Avaliacao(cliente, nota)
+        self._avaliacao.append(avaliacao)
+
+    @property
+    def media_avaliacao(self):
+        if not self._avaliacao:
+            return 0
+        
+        soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
+        quantidade_notas = len(self._avaliacao)
+        media_notas = round(soma_notas / quantidade_notas,1)
+
+        return media_notas
+```
+
+&nbsp;
+
+**`avaliacao.py`**
+
+```PY
+# oo-sabor-express/modelos/avaliacao.py
+
+class Avaliacao:
+    def __init__(self, cliente, nota):
+        self._cliente = cliente
+        self._nota = nota
+```
+
+&nbsp;
+
+**`app.py`**
+
+```PY
+# oo-sabor-express/app.py
+
+from modelos.restaurante import Restaurante
+
+restaurante_praca = Restaurante('praça', 'Gourmet')
+restaurante_arabe = Restaurante('Al-Shabab', 'Arabe')
+restaurante_mexicano = Restaurante('Mexican Food', 'Mexicana')
+restaurante_japones = Restaurante('Japa', 'Japonesa')
+restaurante_brasileiro = Restaurante('bom de garfo', 'brasileiro')
+restaurante_argentino = Restaurante('Ella', 'argentino')
+restaurante_alemao = Restaurante('Munich', 'alemao')
+
+restaurante_praca.alternar_estado()
+restaurante_arabe.alternar_estado()
+restaurante_mexicano.alternar_estado()
+restaurante_brasileiro.alternar_estado()
+restaurante_alemao.alternar_estado()
+
+restaurante_praca.receber_avaliacao('Aada', 8)
+restaurante_praca.receber_avaliacao('Raissa', 1.5)
+
+restaurante_arabe.receber_avaliacao('Zahira', 9.9)
+restaurante_arabe.receber_avaliacao('Emma', 7)
+                   
+restaurante_mexicano.receber_avaliacao('Sofia', 7.5)
+restaurante_mexicano.receber_avaliacao('Caitlyn', 6.75)
+restaurante_mexicano.receber_avaliacao('Elizabeth', 8.4)
+                                       
+restaurante_brasileiro.receber_avaliacao('Chloe', 4)
+restaurante_brasileiro.receber_avaliacao('Charlotte', 5.25)
+
+restaurante_alemao.receber_avaliacao('Emily', 10)
+
+def main():
+    Restaurante.listar_restaurantes()
+
+if __name__ == '__main__':
+    main()
+```
+
+&nbsp;
+
+#### From e import
+
+Agora que a *classe* está criada, vamos organizar o *código* para separar a definição da *classe* das *instâncias* criadas a partir dela, seguindo as boas práticas de projetos de *software*.
+
+O arquivo `restaurante.py` será dedicado exclusivamente à definição da classe `Restaurante`, encapsulando todas as suas *propriedades* e *métodos*.
+
+Para encapsular a lógica de criação, manipulação e acesso às *instâncias*, bem como outros recursos necessários, será criado um arquivo específico.
+
+O arquivo principal da aplicação, `app.py`, será criado no *diretório* raiz do projeto, `oo-sabor-express`, paralelamente ao *diretório* `modelos`, onde esta a *classe* `Restaurante`.
+
+O arquivo `app.py` servirá como ponto de entrada da *aplicação*. Para impedir que seja importado como um *módulo* e executado diretamente, incluiremos o seguinte código:
+
+```PY
+from modelos.restaurante import Restaurante
+
+restaurante_arabe = Restaurante('Al-Shabab', 'Arabe')
+restaurante_mexicano = Restaurante('Mexican Food', 'Mexicana')
+restaurante_japonesa = Restaurante('Japa', 'Japonesa')
+
+restaurante_mexicano.alternar_estado()
+
+def main():
+    Restaurante.listar_restaurantes()
+
+if __name__ == '__main__':
+    main()
+```
+
+&nbsp;
+
+**O Diretório `__pycache__` em Python**
+
+O `__pycache__` é uma forma mais simples do *Python* interpretar o *módulo* importado, ou seja, é um *diretório* que o *Python* cria para armazenar os arquivos compilados em `bytecode`. Que é uma forma que ele tem de interpretar os códigos de uma maneira muito mais simples do que no arquivo original.
+
+&nbsp;
+
+***O que é?***
+
+O *diretório* `__pycache__` é uma pasta criada automaticamente pelo interpretador *Python* para armazenar ***versões compiladas (`bytecode`)*** dos seus *módulos Python*. Esses arquivos compilados, geralmente com extensão `.pyc` ou `.pyo`, são uma forma otimizada do código fonte que o *Python* utiliza para executar seus programas mais rapidamente.
+
+&nbsp;
+
+***Por que ele existe?***
+
+- **Otimização:** Ao compilar o código para *bytecode*, o interpretador *Python* economiza tempo na análise e compilação do código fonte a cada execução. Isso torna a execução de programas *Python* mais rápida, especialmente ao importar módulos frequentemente.
+- **Cache:** Os arquivos `.pyc` servem como um *cache* do código compilado. Quando você modifica um arquivo `.py`, o *Python* detecta a alteração e regenera o arquivo `.pyc` correspondente.
+
+&nbsp;
+
+***Como funciona?***
+
+- **Compilação:** Quando executa um *script Python* ou importa um *módulo*, o *interpretador Python* compila o código fonte em *bytecode* e armazena o resultado em um arquivo `.pyc` dentro do *diretório* `__pycache__`.
+- **Execução:** Nas execuções subsequentes, se o arquivo `.pyc` não estiver desatualizado (ou seja, se o arquivo `.py` correspondente não foi modificado), o *Python* utiliza diretamente o *bytecode*, pulando a etapa de compilação.
+
+&nbsp;
+
+***Estrutura dos arquivos .pyc:***
+
+- **Nome:** O nome do arquivo `.pyc` corresponde ao nome do *módulo Python*, com a extensão `.pyc`.
+- **Conteúdo:** O arquivo contém o *bytecode do módulo*, que é uma representação intermediária do código *Python* mais próxima do código de máquina.
+- **Versão:** O formato do *bytecode* pode variar entre diferentes versões do *Python*, o que significa que arquivos `.pyc` criados em uma versão podem não ser compatíveis com outras versões.
+
+&nbsp;
+
+***Por que `__pycache__`?***
+
+- **Convenção:** O uso de dois *underscores* no início do nome do *diretório* indica que ele é um *diretório interno* e não deve ser modificado manualmente.
+- **Organização:** Agrupa os arquivos compilados em um único local, mantendo a organização do projeto.
+
+&nbsp;
+
+***Você precisa se preocupar com `__pycache__`?***
+
+- **Normalmente não:** O *Python* cuida automaticamente da criação e atualização dos arquivos `.pyc`.
+- **Ignorar em versionamento:** É comum adicionar o *diretório* `__pycache__` ao arquivo `.gitignore` para evitar que ele seja versionado.
+
+&nbsp;
+
+***Em resumo:***
+
+O *diretório* `__pycache__` é uma parte essencial do mecanismo de execução do *Python*, otimizando a performance ao armazenar versões compiladas dos seus módulos. A compreensão do seu funcionamento pode ajudar a entender melhor como o *Python* executa seus programas.
+
+&nbsp;
+
+#### Criando classe de avaliacao
+
+Neste tópico, adicionaremos ao sistema a avaliação dos restaurantes, vamos criar a *classe* `Avaliação` em um novo arquivo, `avaliacao.py`, dentro do *diretório* `modelos`.
+
+No arquivo `avaliacao.py`, vamos criar um *modulo construtor* que recebe dois *parametros*, `cliente` e `nota`.
+
+**`avaliacao.py`**
+
+```PY
+# avaliacao.py
+
+class Avaliacao:
+    def __init__(self, cliente, nota):
+        self._cliente = cliente
+        self._nota = nota
+```
+
+Com a criacao da nova *classe* `Avaliacao`, precisamos relacionar com a *classe* `Restaurante` do arquivo `restaurante.py`.
+
+O codigo `restaurante.py` com as linhas adicionadas com comentario:
+
+```PY
+# restaurante.py
+
+from modelos.avaliacao import Avaliacao # importamos a classe Avaliacao do arquivo acaliacao.py.
+
+class Restaurante:
+    # código omitido
+
+    def __init__(self, nome, categoria):
+        # código omitido
+        self._avaliacao = [] # adicionamos um novo atributo referente a funcao de avaliacao do restaurante.
+        # código omitido
+
+    # código omitido
+
+    def receber_avaliacao(self, cliente, nota): # criamos o modulo receber_avaliacao com os parametros cliente e nota, referente aos parametros e atributos da classe Avaliacao importada do arquivo avaliacai.py.
+        avaliacao = Avaliacao(cliente, nota) # a variavel avaliacao recebe a classe Avaliacao com seus dois paramentros criados, o cliente e nota.
+        self._avaliacao.append(avaliacao) # append tem a funcao de acrescentar toda a informacao adicionada ao atributo self._avaliacao, no caso, sempre adiciona os parametros da classe Avaliacao.
+```
+
+Tambem podemos adicionar o *codigo* no `app.py` chamando o *modulo* `receber_avaliacao`.
+
+```PY
+# app.py
+
+from modelos.restaurante import Restaurante
+
+restaurante_praca = Restaurante('praça', 'Gourmet')
+
+restaurante_praca.receber_avaliacao('Zahira', 10)
+restaurante_praca.receber_avaliacao('Aada', 8)
+restaurante_praca.receber_avaliacao('Raissa', 9.5)
+
+def main():
+    Restaurante.listar_restaurantes()
+
+if __name__ == '__main__':
+    main()
+```
+
+&nbsp;
+
+#### Composicao
+
+Adicionamos o *metodo* `media_avaliacao` na *classe* `Restaurante`.
+
+Novo bloco de codigo com comentario.
+
+```PY
+# restaurante.py
+
+    # código omitido
+
+    @property # adicionamos o metodo especial @property para possibilitar o acesso do metodo media_avaliacao.
+    def media_avaliacao(self): # metodo avaliacao com parametro self, isso quer dizer que ele tem acesso a todos os atributos e métodos da instância da classe que o chamou.
+        if not self._avaliacao: # condicional if que verifica se nao ainda nao existe avaliacao do restaurante
+            return 0 # se a condicao confirmar, retorno como o valor 0
+        
+        soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacao) # sum tem a funcao de somar todas as notas do restaurante, buscando a avaliacao do metodo recever_avaliacao
+        quantidade_notas = len(self._avaliacao) # len tem a funcao de fazer contagem de quantas notas existem do restaurante
+        media_notas = round(soma_notas / quantidade_notas,1) # a variavel media_notas faz a media da soma_notas por quantidade_notas, com a funcao round para arredondar as casas decimais para 1
+
+        return media_notas # retorna a media das notas do restaurante
+```
+
+&nbsp;
+
+#### Listando avaliacoes
+
+Adicionamos a media de avaliacoes na lista de restaurantes do *metodo* `listar_restaurantes`, junto com nome, categoria e ativo.
+
+Alteracao do codigo com comentario.
+
+```PY
+# restaurante.py
+
+    # código omitido
+
+    @classmethod
+    def listar_restaurantes(cls):
+        print(f'{'Nome restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | {'Avaliacao'.ljust(20)} | Status') # adicionamos
+
+        for restaurante in cls.restaurantes:
+            print(f'{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {str(restaurante.media_avaliacao).ljust(20)} | {restaurante.ativo}')
+
+    # código omitido
+```
+#### Exercicios
+
+Os exercicios desse capitulo teve a necessidade de criar arquivos adicionais, identificados no inicios do codigo.
+
+**`exercicios.py`**
+
+```PY
+# 05. importando_classe_e_composicao/exercicios.py
+
+# EXERCICIO 1
+print('1. Crie uma classe chamada Livro com um construtor que aceita os parâmetros titulo, autor e ano_publicacao. Inicie um atributo chamado disponivel como True por padrão.')
+
+class Livro1:
+    def __init__(self, titulo, autor, ano_publicacao):
+        self._titulo = titulo
+        self._autor = autor
+        self._ano_publicacao = ano_publicacao
+        self._disponivel = True
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 2
+print('\n2. Na classe Livro, adicione um método especial str que retorna uma mensagem formatada com o título, autor e ano de publicação do livro. Crie duas instâncias da classe Livro e imprima essas instâncias.')
+
+class Livro2:
+    def __init__(self, titulo, autor, ano_publicacao):
+        self._titulo = titulo
+        self._autor = autor
+        self._ano_publicacao = ano_publicacao
+        self._disponivel = True
+
+    def __str__(self):
+        return f'O livro {self._titulo}, escrito por {self._autor}, foi publicado no ano de {self._ano_publicacao}'
+    
+livro2_hp3 = Livro2('Harry Potter e o Prisioneiro de Azkaban', 'J.K. Rowling', 1999)
+livro2_sa3 = Livro2('O Senhor dos Anéis - O Retorno do Rei', 'J.R.R. Tolkien', 1955)
+livro2_gt5 = Livro2('As Crônicas de Gelo e Fogo - A Dança dos Dragões', 'George R.R. Martin', 2011)
+
+print(f'\n{livro2_hp3}\n{livro2_sa3}\n{livro2_gt5}')
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 3
+print('\n\n3. Adicione um método de instância chamado emprestar à classe Livro que define o atributo disponivel como False. Crie uma instância da classe, chame o método emprestar e imprima se o livro está disponível ou não.')
+
+class Livro3:
+    def __init__(self, titulo, autor, ano_publicacao):
+        self._titulo = titulo
+        self._autor = autor
+        self._ano_publicacao = ano_publicacao
+        self._disponivel = True
+
+    def __str__(self):
+        return f'O livro {self._titulo}, escrito por {self._autor}, publicado no ano de {self._ano_publicacao} esta {self._disponivel}'
+    
+    def emprestar(self):
+        #self._disponivel = False
+        self._disponivel = not self._disponivel
+
+livro3_hp4 = Livro3('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
+
+livro3_hp4.emprestar()
+
+print(livro3_hp4)
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 4
+print('\n\n4. Adicione um método estático chamado verificar_disponibilidade à classe Livro que recebe um ano como parâmetro e retorna uma lista dos livros disponíveis publicados nesse ano.')
+
+class Livro4:
+    livros = []
+
+    def __init__(self, titulo, autor, ano_publicacao):
+        self._titulo = titulo
+        self._autor = autor
+        self._ano_publicacao = ano_publicacao
+        self._disponivel = True
+        Livro4.livros.append(self)
+
+    def __str__(self):
+        return f'O livro {self._titulo}, escrito por {self._autor}, publicado no ano de {self._ano_publicacao} esta {self._disponivel}'
+    
+    def emprestar(self):
+        self._disponivel = not self._disponivel
+
+    @staticmethod
+    def verificar_disponibilidade(ano):
+        livros_disponiveis = []
+        for livro in Livro4.livros:
+            if livro._ano_publicacao == ano and livro._disponivel:
+                livros_disponiveis.append(livro)
+        # VALIDAR LINHA ABAIXO
+        #livros_disponiveis = [livro for livro in Livro4.livros if livro.ano_publicacao == ano and livro.disponivel]
+        return livros_disponiveis
+        
+
+livro4_hp4 = Livro4('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
+livro4_sa = Livro4("O Senhor dos Anéis - As Duas Torres", "J.R.R. Tolkien", 1954)
+livro4_hp1 = Livro4("Harry Potter e a Pedra Filosofal", "J.K. Rowling", 1997)
+
+#livro4_hp4.emprestar()
+
+livros_2000 = Livro4.verificar_disponibilidade(2000)
+print(livros_2000)
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 5
+print('\n5. Crie um arquivo chamado biblioteca.py e importe a classe Livro neste arquivo.')
+
+from models.livros import Livro
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 6
+print('\n6. No arquivo biblioteca.py, empreste o livro chamando o método emprestar e imprima se o livro está disponível ou não após o empréstimo.')
+
+livro_hp4 = Livro('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
+livro_hp4.emprestar()
+
+print(livro_hp4)
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 7
+print('\n7. No arquivo biblioteca.py, utilize o método estático verificar_disponibilidade para obter a lista de livros disponíveis publicados em um ano específico.')
+
+ano_especifico = 2000
+livros_disponiveis_ano = Livro.verificar_disponibilidade(ano_especifico)
+
+print(livros_2000)
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 8
+print('\n8. Crie um arquivo chamado main.py, importe a classe Livro e, no arquivo main.py, instancie dois objetos da classe Livro e exiba a mensagem formatada utilizando o método str.')
+
+from models.livros import Livro
+
+livro_hp4 = Livro('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
+livro_hp4_1 = Livro('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
+
+print(livro_hp4)
+
+livro_hp4.emprestar()
+print(livro_hp4)
+
+livros_2000 = Livro.verificar_disponibilidade(2000)
+print(livros_2000)
+```
+
+**`livros.py`**
+
+```PY
+# 05. importando_classe_e_composicao/book-library/models/livros.py
+
+class Livro:
+    lista_livros = []
+
+    def __init__(self, titulo, autor, ano_publicacao):
+        self._titulo = titulo
+        self._autor = autor
+        self._ano_publicacao = ano_publicacao
+        self._disponivel = True
+        Livro.lista_livros.append(self)
+
+    def __str__(self):
+        return f'O livro {self._titulo}, escrito por {self._autor}, publicado no ano de {self._ano_publicacao}'
+    
+    @classmethod
+    def listar_livros(cls):
+        print(f'{'Nome livro'.ljust(60)} | {'Autor'.ljust(60)} | {'Ano Publicacao'.ljust(60)} | Disponivel')
+
+        for livro in cls.lista_livros:
+            print(f'{livro._titulo.ljust(60)} | {livro._autor.ljust(60)} | {str(livro._ano_publicacao).ljust(60)} | {livro._disponivel}')
+
+    @property
+    def disponibilidade(self):
+        return f'O livro {self._titulo}, escrito por {self._autor}, publicado no ano de {self._ano_publicacao} esta disponivel' if self._disponivel else f'O livro {self._titulo} esta indisponivel'
+    
+    def emprestar(self):
+        self._disponivel = not self._disponivel
+
+    @staticmethod
+    def verificar_disponibilidade(ano):
+        livros_disponiveis = []
+        for livro in Livro.lista_livros:
+            if livro._ano_publicacao == ano and livro._disponivel:
+                livros_disponiveis.append(livro)
+        return f'{livros_disponiveis}'
+```
+
+**`exercicios.py`**
+
+```PY
+# 05. importando_classe_e_composicao/book-library/biblioteca.py
+
+from models.livros import Livro
+
+livro_hp4 = Livro('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
+livro_sa2 = Livro("O Senhor dos Anéis - As Duas Torres", "J.R.R. Tolkien", 1954)
+livro_hp1 = Livro("Harry Potter e a Pedra Filosofal", "J.K. Rowling", 1997)
+livro_sa3 = Livro('O Senhor dos Anéis - O Retorno do Rei', 'J.R.R. Tolkien', 1955)
+livro_gt5 = Livro('As Crônicas de Gelo e Fogo - A Dança dos Dragões', 'George R.R. Martin', 2011)
+
+print(livro_hp4)
+
+livro_hp4.emprestar()
+print(livro_hp4)
+
+livros_2000 = Livro.verificar_disponibilidade(2000)
+print(livros_2000)
+
+Livro.listar_livros()
+print(livro_hp4.disponibilidade)
 ```
