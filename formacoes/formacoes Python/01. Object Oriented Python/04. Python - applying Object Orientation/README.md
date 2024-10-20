@@ -1,4 +1,4 @@
-### Python - aplicando a Orientação a Objetos
+## Python - aplicando a Orientação a Objetos
 
 O que sera trabalhado durante o treinamento:
 
@@ -10,7 +10,7 @@ O que sera trabalhado durante o treinamento:
 &nbsp;
 &nbsp;
 
-#### 01 - Classes
+### 01 - Classes
 
 Topicos trabalhados no capitulo
 
@@ -20,7 +20,7 @@ Topicos trabalhados no capitulo
 
 &nbsp;
 
-##### OO Sabor Express
+#### OO Sabor Express
 
 Nessa etapa com a criacao de um novo arquivo chamado `restaurante.py`, nele trabalhou com as funcionalidades basicas sobre **classes**.
 
@@ -45,7 +45,7 @@ print(vars(restaurantes[0]))
 
 &nbsp;
 
-##### Classe
+#### Classe
 
 `Classe` é como um molde para criar objetos, a base da programação orientada a objetos em *Python*. Elas proporcionam uma forma eficiente e organizada de modelar o mundo real em seus programas.
 
@@ -57,7 +57,7 @@ Conceitos-chave:
 
 &nbsp;
 
-##### Exemplo
+***Exemplo***
 
 ```PY
 class Cachorro:
@@ -87,7 +87,7 @@ cachorro1.latir()  # Saída: Au au!
 
 &nbsp;
 
-##### Por que usar classes?
+***Por que usar classes?***
 
 - **Organização**: Agrupa dados (*atributos*) e funcionalidades (*métodos*) relacionados.
 - **Reutilização**: Permite criar múltiplos objetos com a mesma estrutura.
@@ -97,7 +97,7 @@ cachorro1.latir()  # Saída: Au au!
 
 &nbsp;
 
-##### Tópicos para explorar:
+#### Tópicos para explorar:
 
 **Herança**: Como criar novas classes a partir de classes existentes.
 **Polimorfismo**: Como tratar objetos de diferentes classes de forma uniforme.
@@ -106,7 +106,7 @@ cachorro1.latir()  # Saída: Au au!
 
 &nbsp;
 
-##### *dir()* e *vars()*
+#### *dir()* e *vars()*
 
 As funções `dir()` e `vars()` permitem trabalhar com os *atributos* e *métodos* de objetos, especialmente quando se trabalha com classes.
 
@@ -118,6 +118,8 @@ As funções `dir()` e `vars()` permitem trabalhar com os *atributos* e *método
     - **Exploração**: Para descobrir quais *atributos* e *métodos* um objeto possui.
     - **Depuração**: Para verificar se um *atributo* está sendo definido corretamente.
     - **Introspeção**: Para entender a estrutura de um objeto.
+
+&nbsp;
 
 ***Exemplo***
 
@@ -134,6 +136,8 @@ pessoa1 = Pessoa("Alice", 30)
 print(dir(pessoa1))
 ```
 
+&nbsp;
+
 A saída de `dir(pessoa1)` lista os *atributos* definidos na classe como `nome`, `idade`, `cumprimentar`, além de outros *atributos* e *métodos* herdados da *classe* base `object`.
 
 ***vars()***
@@ -144,6 +148,8 @@ A saída de `dir(pessoa1)` lista os *atributos* definidos na classe como `nome`,
     - **Acesso aos valores**: Para obter os valores dos *atributos* de um objeto de forma direta.
     - **Modificação**: Para modificar os valores dos *atributos* de um objeto.
 
+&nbsp;
+
 ***Exemplo:***
 
 ```PY
@@ -152,6 +158,7 @@ print(vars(pessoa1))
 
 A saída de `vars(pessoa1)` será um ***dicionário*** como `{'nome': 'Alice', 'idade': 30}`.
 
+&nbsp;
 
 ***Diferenças e Quando Usar Cada Uma***
 
@@ -167,7 +174,7 @@ A saída de `vars(pessoa1)` será um ***dicionário*** como `{'nome': 'Alice', '
 
 &nbsp;
 
-##### Exercicios
+#### Exercicios
 
 ```PY
 # EXERCICIO 1
@@ -285,7 +292,7 @@ print(f'Nome: {restaurante_praca.nome}, Categoria: {restaurante_praca.categoria}
 &nbsp;
 &nbsp;
 
-#### 02 - Construtor e instanciando objetos
+### 02 - Construtor e instanciando objetos
 
 Topicos trabalhados no capitulo
 
@@ -295,7 +302,7 @@ Topicos trabalhados no capitulo
 
 &nbsp;
 
-##### OO Sabor Express
+#### OO Sabor Express
 
 Nessa etapa trabalha com metodos especiais `__init__` e `__str__`, alem de criar o proprio metodo.
 
@@ -325,7 +332,7 @@ Restaurante.listar_restaurantes()
 
 &nbsp;
 
-##### Construtor
+#### Construtor e outros metodos
 
 ***O Método init: O Construtor da Classe***
 
@@ -335,12 +342,14 @@ Frequentemente chamado de *construtor*, pois é executado automaticamente quando
 
 &nbsp;
 
-**Qual a sua função principal?**
+***Qual a sua função principal?***
 
 - **Inicializar atributos**: O `__init__` é utilizado para atribuir valores iniciais aos *atributos* de um *objeto*. Esses atributos definem as características e o estado de cada *instância* da *classe*.
 - **Realizar outras tarefas de inicialização**: Além de atribuir valores, o `__init__` pode ser usado para realizar outras operações necessárias no momento da criação do *objeto*, como conectar a um *banco de dados*, carregar configurações, etc.
 
-*Exemplo*
+&nbsp;
+
+***Exemplo***
 
 ```PY
 class Cachorro:
@@ -361,12 +370,16 @@ Neste exemplo, o *método* `__init__` recebe os parâmetros nome e raca e os atr
 
 O `self` é um parâmetro especial que é passado implicitamente para todos os *métodos* de uma *classe*, incluindo o `__init__`. Ele representa a instância atual da classe, ou seja, o objeto específico que está sendo manipulado.
 
-**Para que serve o `self`?**
+&nbsp;
+
+***Para que serve o `self`?***
 
 - **Acessar atributos**: O `self` é usado para acessar e modificar os atributos de um objeto dentro de um método. Por exemplo, `self.nome` acessa o atributo nome da *instância* atual.
 - **Chamar outros métodos**: O `self` também pode ser usado para chamar outros *métodos* da mesma *classe*.
 
-*Exemplo*
+&nbsp;
+
+***Exemplo***
 
 ```PY
 class Cachorro:
@@ -386,10 +399,12 @@ Neste exemplo, o *método* `latir` usa `self.nome` para acessar o nome do cachor
 
 &nbsp;
 
-**Por que usar self?**
+***Por que usar self?***
 
 - **Clareza**: O `self` torna explícito que estamos acessando *atributos* ou *métodos* de uma *instância* específica.
 - **Evita confusões**: Ao usar `self`, evita conflitos entre nomes de variáveis locais e *atributos* da *classe*.
+
+&nbsp;
 
 ***O Método `__str__` em Python: Uma Representação Amigável dos Objetos***
 
@@ -399,7 +414,7 @@ Quando imprimir um *objeto* ou convertê-lo para uma *string*, o *Python* chama 
 
 &nbsp;
 
-**Por que usar o __str__?**
+***Por que usar o __str__?***
 
 - **Leiturabilidade**: Ao personalizar o *método* `__str__`, pode controlar como os *objetos* de sua *classe* são exibidos, tornando a saída mais clara e concisa para o usuário.
 - **Depuração**: Durante o desenvolvimento, o *método* `__str__` pode ser muito útil para inspecionar o estado de um *objeto* e identificar possíveis problemas.
@@ -407,7 +422,7 @@ Quando imprimir um *objeto* ou convertê-lo para uma *string*, o *Python* chama 
 
 &nbsp;
 
-**Como funciona:**
+***Como funciona:***
 
 - **Método especial**: O __str__ é um método "mágico" ou "dunder" (double underscore), o que significa que ele tem um significado especial para o interpretador Python.
 - **Retorno**: O método deve retornar uma string que representa o objeto de forma clara e concisa.
@@ -415,21 +430,21 @@ Quando imprimir um *objeto* ou convertê-lo para uma *string*, o *Python* chama 
 
 &nbsp;
 
-**Comparação com `__repr__`:**
+***Comparação com `__repr__`:***
 
 `__str__`: Destinado a fornecer uma representação amigável ao usuário, como se fosse para ser exibida em um *console* ou *log*.
 `__repr__`: Destinado a fornecer uma representação não ambígua do *objeto*, ideal para depuração e reprodução do *objeto*. Geralmente é mais detalhado e pode incluir informações técnicas.
 
 &nbsp;
 
-**Quando usar `__str__` e `__repr__`?**
+***Quando usar `__str__` e `__repr__`?***
 
 `__str__`: Para a maioria dos casos, quando você precisa de uma representação concisa e legível para o usuário final.
 `__repr__`: Para depuração, geração de documentação ou quando você precisa de uma representação completa e inequívoca do *objeto*.
 
 &nbsp;
 
-**Exemplo com `__repr__`:**
+***Exemplo com `__repr__`:***
 
 ```PY
 class Pessoa:
@@ -450,7 +465,7 @@ print(repr(pessoa1))  # Saída: Pessoa(nome='Sofia', idade=30)
 
 &nbsp;
 
-##### Exercicios
+#### Exercicios
 
 ```PY
 # EXERCICIO 1
@@ -579,7 +594,7 @@ Cliente.listar_clientes()
 &nbsp;
 &nbsp;
 
-#### 03 - Property e metodos de classe
+### 03 - Property e metodos de classe
 
 Topicos trabalhados no capitulo
 
@@ -589,13 +604,49 @@ Topicos trabalhados no capitulo
 
 &nbsp;
 
-##### OO Sabor Express
+#### OO Sabor Express
 
-Nessa etapa trabalha com
+Nessa etapa trabalha com `@property`, `self._attribute`, `@classmethod`, `cls` e construcao do proprio *metodo*.
+
+```PY
+class Restaurante:
+    restaurantes = []
+
+    def __init__(self, nome, categoria):
+        self._nome = nome.title()
+        self._categoria = categoria.upper()
+        self._ativo = False
+        Restaurante.restaurantes.append(self)
+
+    def __str__(self):
+        return f'{self._nome} | {self._categoria}'
+
+    @classmethod
+    def listar_restaurantes(cls):
+        print(f'{'Nome restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | Status')
+
+        for restaurante in cls.restaurantes:
+            print(f'{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {restaurante.ativo}')
+
+    @property
+    def ativo(self):
+        return '⌧ ativo' if self._ativo else '☐ ativo'
+    
+    def alternar_estado(self):
+        self._ativo = not self._ativo
+
+restaurante_praca = Restaurante('Praca', 'Arabe')
+restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
+
+# restaurante_praca.alternar_estado()
+# restaurante_praca._nome = 'praca 2.0'
+
+Restaurante.listar_restaurantes()
+```
 
 &nbsp;
 
-##### Property e self._attribute
+#### Property e self._attribute
 
 ***Entendendo self._ativo e @property no código***
 
@@ -665,12 +716,14 @@ def ativo(self, valor):
 
 Com essa implementação, garantiria que o *atributo* `_ativo` só possa receber valores *booleanos*.
 
+&nbsp;
+
 **Em resumo:**
 - O uso combinado de *atributos privados* e *propriedades* em *Python* é uma prática comum para *encapsular* o estado de um *objeto* e fornecer uma *interface* mais clara e segura para interagir com ele.
 
 &nbsp;
 
-##### Aprofundando em propriedades
+#### Aprofundando em propriedades
 
 Aplicado os recursos `.title()`, `.upper()`, `_nome` e `_categoria`.
 
@@ -678,6 +731,8 @@ Aplicado os recursos `.title()`, `.upper()`, `_nome` e `_categoria`.
 - `.upper()`: transforma todo o dado em letras maiusculas.
 - `_nome`: armazena o estado interno do *objeto* de forma *privada*.
 - `_categoria`: armazena o estado interno do *objeto* de forma *privada*.
+
+&nbsp;
 
 ***Exemplo***
 
@@ -704,9 +759,10 @@ Restaurante.listar_restaurantes()
 # Nome restaurante     | Categoria
 # Praca                | ARABE
 ```
+
 &nbsp;
 
-##### Metodos de classes
+#### Metodos de classes
 
 Foi aplicado o *decorador* `@classmethod`, o *parametro* `cls` e o novo *metodo* `alternar_estado()`.
 
@@ -740,15 +796,15 @@ Restaurante.listar_restaurantes()
 
 &nbsp;
 
-***Entendendo `@classmethod` e `cls` em Python***
+**Entendendo `@classmethod` e `cls` em Python.**
 
-**O que é `@classmethod`?**
+***O que é `@classmethod`?***
 
 O *decorador* `@classmethod` em *Python* transforma um *método* de *classe* em um *método* que pode ser chamado diretamente na *classe*, sem a necessidade de *instanciar* um *objeto*. Em outras palavras, ele permite que acesse e modifique *atributos* de *classe* diretamente a partir da *classe*, sem precisar de uma *instância* específica.
 
 &nbsp;
 
-**O parâmetro cls**
+**O parâmetro `cls`.**
 
 Quando você usa `@classmethod`, o primeiro *parâmetro do método*, por convenção, é chamado de `cls`. Ele representa a própria *classe*, não uma *instância* da *classe* como `self`.
 
@@ -767,10 +823,12 @@ Quando você usa `@classmethod`, o primeiro *parâmetro do método*, por conven�
 
 ***Relacionamento entre `@classmethod` e `@property`***
 
-`@classmethod` e `@property` são *decoradores* com propósitos diferentes:
+**`@classmethod` e `@property` são *decoradores* com propósitos diferentes:**
 
 - **`@classmethod`:** Transforma um *método* em um *método* de *classe*, permitindo o acesso à *classe* e seus *atributos*.
 - **`@property`:** Permite que um *método* seja acessado como se fosse um *atributo*, oferecendo um mecanismo para encapsular a lógica de acesso a dados.
+
+&nbsp;
 
 ***Eles não têm uma relação direta, mas podem ser usados em conjunto:***
 
@@ -781,9 +839,7 @@ Quando você usa `@classmethod`, o primeiro *parâmetro do método*, por conven�
 
 ***Analisando o código***
 
-No código, o *método* `listar_restaurantes` é um `@classmethod`.
-
-**Ele:**
+No código, o *método* `listar_restaurantes` é um `@classmethod`:
 
 - **Não precisa de uma instância:** Pode ser chamado diretamente na *classe* `Restaurante`.
 - **Acessa a lista de restaurantes:** Usa `cls.restaurantes` para acessar a lista de todos os restaurantes, que é um *atributo* de *classe*.
@@ -804,3 +860,167 @@ Porque a lista de *restaurantes* é um *atributo* da *classe*, não de cada *ins
 - `@property` permite que um *método* seja acessado como um *atributo*.
 
 &nbsp;
+
+##### Exercicios
+
+```PY
+# EXERCICIO 1
+print('1. Crie uma classe chamada ContaBancaria com um construtor que aceita os parâmetros titular e saldo. Inicie o atributo ativo como False por padrão.')
+
+class ContaBancaria1:
+    def __init__(self, titular, saldo):
+        self.titular = titular
+        self.saldo = saldo
+        self._ativo = False
+
+pessoa1_conta_bancaria1 = ContaBancaria1('Raissa',200)
+
+print(f'A conta de {pessoa1_conta_bancaria1.titular} esta com status {pessoa1_conta_bancaria1._ativo} e tem saldo de {pessoa1_conta_bancaria1.saldo} bitcoins')
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 2
+print('\n2. Na classe ContaBancaria, adicione um método especial __str__ que retorna uma mensagem formatada com o titular e o saldo da conta. Crie duas instâncias da classe e imprima essas instâncias.')
+
+class ContaBancaria2:
+    def __init__(self, titular, saldo):
+        self.titular = titular
+        self.saldo = saldo
+        self._ativo = False
+
+    def __str__(self):
+        return f'A conta de {self.titular} esta com status {self._ativo} e tem saldo de {self.saldo} bitcoin'
+    
+pessoa1_conta_bancaria2 = ContaBancaria2('Zahira', 500)
+pessoa2_conta_bancaria2 = ContaBancaria2('Aada', 100)
+
+print(pessoa1_conta_bancaria2)
+print(pessoa2_conta_bancaria2)
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 3
+print('\n3. Adicione um método de classe chamado ativar_conta à classe ContaBancaria que define o atributo ativo como True. Crie uma instância da classe, chame o método de classe e imprima o valor de ativo.')
+
+class ContaBancaria3:
+    def __init__(self, titular, saldo):
+        self.titular = titular
+        self.saldo = saldo
+        self._ativo = False
+
+    def __str__(self):
+        return f'A conta de {self.titular} esta com status {self._ativo} e tem saldo de {self.saldo} bitcoin'
+    
+    @classmethod
+    def ativar_conta(cls, conta):
+        conta._ativo = True
+
+pessoa1_conta_bancaria3 = ContaBancaria3('Emma',150)
+print(pessoa1_conta_bancaria3)
+
+ContaBancaria3.ativar_conta(pessoa1_conta_bancaria3)
+print(pessoa1_conta_bancaria3)
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 4
+print('\n4. Refatore a classe ContaBancaria para utilizar a abordagem "pythonica" na criação de atributos. Utilize propriedades, se necessário.')
+
+class ContaBancaria4:
+    def __init__(self, titular, saldo):
+        self._titular = titular
+        self._saldo = saldo
+        self._ativo = False
+
+    def __str__(self):
+        return f'A conta de {self.titular} esta com status {self._ativo} e tem saldo de {self.saldo} bitcoin'
+    
+    @classmethod
+    def ativar_conta(cls, conta):
+        conta._ativo = True
+
+    @property
+    def titular(self):
+        return self._titular
+    
+    @property
+    def saldo(self):
+        return self._saldo
+    
+    @property
+    def ativo(self):
+        return self._ativo
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 5
+print('\n5. Crie uma instância da classe e imprima o valor da propriedade titular.')
+
+class ContaBancaria5:
+    def __init__(self, titular, saldo):
+        self._titular = titular
+        self._saldo = saldo
+        self._ativo = False
+
+    def __str__(self):
+        return f'A conta de {self.titular} esta com status {self._ativo} e tem saldo de {self.saldo} bitcoin'
+    
+    @classmethod
+    def ativar_conta(cls, conta):
+        conta._ativo = True
+
+    @property
+    def titular(self):
+        return self._titular
+    
+    @property
+    def saldo(self):
+        return self._saldo
+    
+    @property
+    def ativo(self):
+        return self._ativo
+
+pessoa1_conta_bancaria5 = ContaBancaria5('Sofia', 450)
+print(f'O titular da conta bancaria: {pessoa1_conta_bancaria5.titular}')
+
+#####################################################################################################################################################################################
+
+# EXERCICIO 6
+print('\n6. Crie uma classe chamada ClienteBanco com um construtor que aceita 5 atributos. Instancie 3 objetos desta classe e atribua valores aos seus atributos através do método construtor.')
+
+class ClienteBanco1:
+    def __init__(self, nome, conta, idade, origem, profissao):
+        self._nome = nome.title()
+        self._conta = conta
+        self._idade = idade
+        self._origem = origem.title()
+        self._profissao = profissao.upper()
+
+conta1_cliente_banco1 = ClienteBanco1('Caitlyn', 87245, 38, 'irlanda', 'biologa')
+conta2_cliente_banco1 = ClienteBanco1('Elizabeth', 3901, 35, 'inglaterra', 'investidora')
+conta3_cliente_banco1 = ClienteBanco1('Chloe', 65812, 25, 'gracia', 'atleta olimpica')
+
+print(f'{vars(conta1_cliente_banco1)}\n{vars(conta2_cliente_banco1)}\n{vars(conta3_cliente_banco1)}')
+
+# EXERCICIO 7
+print('\n7. Crie um método de classe para a conta ClienteBanco.')
+
+class ClienteBanco2:
+    def __init__(self, nome, conta, idade, origem, profissao):
+        self._nome = nome.title()
+        self._conta = conta
+        self._idade = idade
+        self._origem = origem.upper()
+        self._profissao = profissao.upper()
+
+    @classmethod
+    def conta(cls, titular, saldo):
+        conta = ClienteBanco2(titular, saldo)
+        return conta
+
+conta1_cliente_banco2 = ClienteBanco2('Charlotte', 427, 43, 'franca', 'CEO')
+conta2_cliente_banco2 = ClienteBanco2('Emily', 98630, 21, 'alemanha', 'duble')
+
+print(f'{vars(conta1_cliente_banco2)}\n{vars(conta2_cliente_banco2)}\n')
+```
