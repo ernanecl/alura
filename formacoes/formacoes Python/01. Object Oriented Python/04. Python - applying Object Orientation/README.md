@@ -648,9 +648,11 @@ Restaurante.listar_restaurantes()
 
 #### Property e self._attribute
 
-***Entendendo self._ativo e @property no código***
+**Entendendo self._ativo e @property no código**
 
-`self._ativo`
+&nbsp;
+
+***`self._ativo`***
 
 - **O que é:** É um *atributo* da *classe Restaurante* que indica se o restaurante está ativo ou não.
 - **Por que o underline?** O *underline (_)* antes do nome do *atributo* é uma convenção em *Python* para indicar que o *atributo* é *privado* ou *protegido*, ou seja, não é destinado a ser acessado diretamente de fora da classe. Essa convenção ajuda a evitar modificações acidentais no estado interno do objeto.
@@ -658,7 +660,7 @@ Restaurante.listar_restaurantes()
 
 &nbsp;
 
-`@property`
+***`@property`***
 
 - **O que é:** É um decorador em *Python* que permite que um *método* seja acessado como se fosse um *atributo*.
 - **Qual a sua função?** No seu código, o decorador `@property` transforma o *método ativo* em uma propriedade. Isso significa que você pode acessar o valor desse *atributo* usando a sintaxe `restaurante.ativo`, mas na verdade, o que está acontecendo por trás das cortinas é uma chamada ao *método ativo*.
@@ -699,6 +701,8 @@ restaurante_praca.ativo = True  # Isso chama a propriedade e muda o valor de _at
 print(restaurante_praca.ativo)  # Imprime 'ativo'
 ```
 
+&nbsp;
+
 **Observação:** Embora não esteja presente no código, também pode definir um `setter` para a propriedade *ativo* usando o decorador `@ativo.setter`. Isso permitiria que atribuir novos valores ao *atributo* `_ativo` de forma controlada.
 
 &nbsp;
@@ -718,14 +722,14 @@ Com essa implementação, garantiria que o *atributo* `_ativo` só possa receber
 
 &nbsp;
 
-**Em resumo:**
+***Em resumo:***
 - O uso combinado de *atributos privados* e *propriedades* em *Python* é uma prática comum para *encapsular* o estado de um *objeto* e fornecer uma *interface* mais clara e segura para interagir com ele.
 
 &nbsp;
 
 #### Aprofundando em propriedades
 
-Aplicado os recursos `.title()`, `.upper()`, `_nome` e `_categoria`.
+**Aplicado os recursos `.title()`, `.upper()`, `_nome` e `_categoria`.**
 
 - `.title()`: inicia a primeira letra em maiusculo.
 - `.upper()`: transforma todo o dado em letras maiusculas.
@@ -734,7 +738,7 @@ Aplicado os recursos `.title()`, `.upper()`, `_nome` e `_categoria`.
 
 &nbsp;
 
-***Exemplo***
+**Exemplo**
 
 ```PY
 class Restaurante:
@@ -764,7 +768,7 @@ Restaurante.listar_restaurantes()
 
 #### Metodos de classes
 
-Foi aplicado o *decorador* `@classmethod`, o *parametro* `cls` e o novo *metodo* `alternar_estado()`.
+**Aplicado o *decorador* `@classmethod`, o *parametro* `cls` e o novo *metodo* `alternar_estado()`.**
 
 ```PY
 class Restaurante:
@@ -804,7 +808,7 @@ O *decorador* `@classmethod` em *Python* transforma um *método* de *classe* em 
 
 &nbsp;
 
-**O parâmetro `cls`.**
+***O parâmetro `cls`.***
 
 Quando você usa `@classmethod`, o primeiro *parâmetro do método*, por convenção, é chamado de `cls`. Ele representa a própria *classe*, não uma *instância* da *classe* como `self`.
 
@@ -823,7 +827,7 @@ Quando você usa `@classmethod`, o primeiro *parâmetro do método*, por conven�
 
 ***Relacionamento entre `@classmethod` e `@property`***
 
-**`@classmethod` e `@property` são *decoradores* com propósitos diferentes:**
+*`@classmethod` e `@property` são *decoradores* com propósitos diferentes:*
 
 - **`@classmethod`:** Transforma um *método* em um *método* de *classe*, permitindo o acesso à *classe* e seus *atributos*.
 - **`@property`:** Permite que um *método* seja acessado como se fosse um *atributo*, oferecendo um mecanismo para encapsular a lógica de acesso a dados.
@@ -837,9 +841,9 @@ Quando você usa `@classmethod`, o primeiro *parâmetro do método*, por conven�
 
 &nbsp;
 
-***Analisando o código***
+**Analisando o código**
 
-No código, o *método* `listar_restaurantes` é um `@classmethod`:
+***No código, o *método* `listar_restaurantes` é um `@classmethod`:***
 
 - **Não precisa de uma instância:** Pode ser chamado diretamente na *classe* `Restaurante`.
 - **Acessa a lista de restaurantes:** Usa `cls.restaurantes` para acessar a lista de todos os restaurantes, que é um *atributo* de *classe*.
