@@ -1557,7 +1557,7 @@ class Livro:
         return f'{livros_disponiveis}'
 ```
 
-**`exercicios.py`**
+**`biblioteca.py`**
 
 ```PY
 # 05. importando_classe_e_composicao/book-library/biblioteca.py
@@ -1580,4 +1580,91 @@ print(livros_2000)
 
 Livro.listar_livros()
 print(livro_hp4.disponibilidade)
+```
+
+
+&nbsp;
+&nbsp;
+
+### 05 - Consolidado conhecimento
+
+**Topicos do capitulo:**
+
+- Condicional no metodo `receber_avaliacao`
+- Adicionando saida no metodo `media_avaliacao`
+- Colocando *docstring* na classe `Restaurante` 
+
+&nbsp;
+
+#### OO Sabor Express
+
+Versao final do *codigo* do capitulo:
+
+```PY
+from modelos.avaliacao import Avaliacao
+
+class Restaurante:
+    restaurantes = []
+
+    def __init__(self, nome, categoria):
+        """
+        Inicializa uma instância de Restaurante.
+
+        Parâmetros:
+        - nome (str): O nome do restaurante.
+        - categoria (str): A categoria do restaurante.
+        """
+        self._nome = nome.title()
+        self._categoria = categoria.upper()
+        self._ativo = False
+        self._avaliacao = []
+        Restaurante.restaurantes.append(self)
+
+    def __str__(self):
+        """Retorna uma representação em string do restaurante."""
+        return f'{self._nome} | {self._categoria}'
+
+    @classmethod
+    def listar_restaurantes(cls):
+        """Exibe uma lista formatada de todos os restaurantes."""
+        print(f'{'Nome restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | {'Avaliacao'.ljust(20)} | Status')
+
+        for restaurante in cls.restaurantes:
+            print(f'{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {str(restaurante.media_avaliacao).ljust(20)} | {restaurante.ativo}')
+
+    @property
+    def ativo(self):
+        """Retorna um símbolo indicando o estado de atividade do restaurante."""
+        return '⌧ ativo' if self._ativo else '☐ ativo'
+    
+    def alternar_estado(self):
+        """Alterna o estado de atividade do restaurante."""
+        self._ativo = not self._ativo
+
+    def receber_avaliacao(self, cliente, nota):
+        """
+        Registra uma avaliação para o restaurante.
+
+        Parâmetros:
+        - cliente (str): O nome do cliente que fez a avaliação.
+        - nota (float): A nota atribuída ao restaurante (entre 1 e 5).
+        """
+        avaliacao = Avaliacao(cliente, nota)
+        if 0 <= avaliacao._nota <= 5:
+            self._avaliacao.append(avaliacao)
+            print(f'A avaliacao de {avaliacao._cliente} foi de {avaliacao._nota}')
+        else:
+            print(f'Avaliacao de {avaliacao._nota} nao valida, a avaliacao de {avaliacao._cliente} precisa ser de 0 a 5')
+
+    @property
+    def media_avaliacao(self):
+        """Calcula e retorna a média das avaliações do restaurante."""
+        if not self._avaliacao:
+            return 'Sem avaliacao'
+        
+        soma_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
+        quantidade_notas = len(self._avaliacao)
+        media_notas = round(soma_notas / quantidade_notas,1)
+
+        return media_notas
 ```
