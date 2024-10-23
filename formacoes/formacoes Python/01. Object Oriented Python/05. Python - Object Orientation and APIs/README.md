@@ -445,7 +445,7 @@ Segue a arquitetura do sistema atual com os itens criados ou alterados:
 
 &nbsp;
 
-#### 01. Metodos para adicionar itens
+#### 2.1. Metodos para adicionar itens
 
 No arquivo `restaurante.py`, adicionamos os *metodos* `adicionar_bebida_cardapio` e `adicionar_prato_cardapio` na *classe* `Restaurante`.
 Tambem adicionamos um novo *atributo* `self._cardapio = []` ao *metodo construtor*.
@@ -489,7 +489,7 @@ restaurante_praca.adicionar_prato_cardapio(prato_pao)
 
 &nbsp;
 
-#### 02. Refatoracao
+#### 2.2. Refatoracao
 
 A refatoracao feita foi diminuir *metodos* na *classe* `Restaurante`, eliminando os *metodos* `adicionar_bebida_cardapio` e `adicionar_prato_cardapio` para adicionar o *metodo* `adicionar_cardapio`.
 
@@ -532,7 +532,7 @@ restaurante_praca.adicionar_cardapio(prato_pao)
 
 &nbsp;
 
-#### 03. Exibindo o cardapio
+#### 2.3. Exibindo o cardapio
 
 Foi criado uma *classe* `exibir_cardapio`, nela usamos o *parametro especial* `self`, como o laco de repeticao `for` e a condicional `if/else`, tambem usou as novas funcoes `enumerate` e `hasattr`.
 
@@ -602,7 +602,7 @@ Foi criado uma *classe* `exibir_cardapio`, nela usamos o *parametro especial* `s
 - **`item`:** O objeto que será verificado.
 - **`'descricao':`** O nome do atributo que queremos verificar.
 
-#### 04. Metodos abstrato
+#### 2.4. Metodos abstrato
 
 Implementado o *metodo abstrado* no arquivo `item_cardapio.py`.
 
@@ -689,7 +689,7 @@ Em programação *orientada a objetos*, um *método abstrato* é um *método* de
 
 &nbsp;
 
-#### 05. Polimorfismo
+#### 2.5. Polimorfismo
 
 Aplicacao dos metodos `aplicar_desconto` nas classes `Prato` e `Bebidas`, tambem teve a aplicacao do uso do metodo no  arquivo `app.py`.
 
@@ -911,3 +911,153 @@ print(f"Carro 3: {carro3.marca} {carro3.modelo}, Cor: {carro3.cor}")
 
 &nbsp;
 &nbsp;
+
+### 3. Ambientes Virtuais
+
+*Ambientes virtuais* são essenciais para organizar projetos *Python* e evitar conflitos de dependências, isolando o projeto. O *Poetry* é uma ferramenta mais completa e recomendada para a maioria dos projetos, enquanto o *venv* é uma opção mais básica para projetos simples.
+
+&nbsp;
+
+#### 3.1. Venv - Ambiente Virtual Python
+
+Nesse capitulo vamos trabalhar com a ferramenta `venv`, ele é uma ferramenta padrao do Python e nao tem a necessidade de instalar para uso.
+
+Vamos criar um novo diretorio e acessa-lo, com os comandos abaixo:
+
+```BASH
+mkdir virtual_environment
+cd virtual_environment
+```
+
+&nbsp;
+
+Em seguida para criar o *ambiente virtual*, vamos executar o seguinte comando:
+
+```BASH
+# python: Indica que você está executando o interpretador Python.
+# -m: Essa flag indica que você está executando um módulo Python como um script.
+# venv: É o nome do módulo padrão do Python que cria ambientes virtuais.
+# environment_name: É o nome que você escolherá para o seu ambiente virtual.
+python -m venv environment_name
+```
+
+&nbsp;
+
+**Explicação detalhada:**
+
+- **`python -m`:** Ao usar `-m`, você está dizendo ao *Python* para tratar o *módulo* `venv` como um *script* principal. Isso significa que o *Python* irá executar o código dentro do *módulo* `venv` como se fosse um programa independente.
+- **`venv`**: O *módulo* `venv` é parte da biblioteca padrão do *Python* e fornece a funcionalidade para criar e gerenciar *ambientes virtuais*. Ao executar `python -m venv`, você está iniciando esse *módulo*.
+- **`environment_name`:** Este é o nome que você dará ao seu *ambiente virtual*. É importante escolher um nome descritivo para facilitar a identificação.
+
+&nbsp;
+
+Apos a execucao do comando é criado diretorios e arquivos, como mostrado abaixo:
+
+* virtual_environment
+  * venv
+    * bin
+        * activate
+        * activate.csh
+        * activate.fish
+        * Activate.ps1
+        * pip
+        * pip3
+        * pip3.12
+        * python
+        * python3
+        * python3.12
+    * include/python3.12
+    * lib/python3.12/site-packages
+        * pip/...
+        * pip-24.0.dist-info/...
+    * lib64/python3.12/site-packages
+        * pip/...
+        * pip-24.0.dist-info/...
+    * pyvenv.cfg
+
+&nbsp;
+
+**Diretórios Principais e suas Funcionalidades:**
+
+- **`bin`:**
+    - **`activate`:** *Scripts* para ativar o *ambiente virtual* em diferentes *shells* (*Bash*, *Zsh*, *Fish*, *PowerShell*). Ao ativar o ambiente, você modifica as variáveis de ambiente para que o *Python* use os executáveis e bibliotecas do *ambiente virtual*, em vez dos globais.
+    - **`pip`, `pip3`, `python`, `python3`:** *Links* simbólicos (ou atalhos) para os executaveis do *Python* e do gerenciador de pacotes *pip* dentro do *ambiente virtual*.
+    - **Versões específicas (`pip3.12`, `python3.12`):** Podem existir caso você tenha instalado versões específicas do Python ou pip.
+- **`include/python3.12`:** Contém os cabeçalhos de arquivos *C* usados para compilar extensões *Python*. Se você precisar compilar uma extensão para o seu projeto, os arquivos nesse diretório serão utilizados.
+- **`lib/python3.12/site-packages`:** Este é o diretório principal onde os pacotes *Python* instalados no *ambiente virtual* são armazenados. Os pacotes são organizados em subdiretórios.
+- **`lib64/python3.12/site-packages`:** Em sistemas de *64 bits*, este diretório pode ser usado para armazenar bibliotecas compartilhadas maiores. A sua presença e conteúdo podem variar dependendo da distribuição *Linux* e da configuração do ambiente.
+- **`pyvenv.cfg`:** Este arquivo de configuração contém informações sobre o *ambiente virtual*, como a localização da instalação do *Python* usada para criar o ambiente e o diretório de isolamento.
+
+&nbsp;
+
+**Resumindo:**
+- **`bin`:** Contém os scripts e executáveis necessários para usar o ambiente virtual.
+- **`include`:** Armazena os cabeçalhos C para a compilação de extensões Python.
+- **`lib` e `lib64`:** Armazenam os pacotes Python instalados e as bibliotecas compartilhadas.
+- **`pyvenv.cfg`:** Configurações do ambiente virtual.
+
+&nbsp;
+
+**Ativando ambiente virtual `venv`**
+
+Acessando o diretorio do ambiente virtual, executamos o comando de ativar de acordo com o sistema operacional usado.
+
+Ambiente *Linux*
+
+```BASH
+source venv/bin/activate
+```
+
+Ambiente *Windows*
+
+```BASH
+venv\Scripts\activate.bat
+```
+
+&nbsp;
+
+**Desativando ambiente virtual `venv`**
+
+Tambem dentro do diretorio, seguimos com o comando abaixo para desativar o ambiente.
+
+Ambiente *Linux* e *Windows*
+
+```BASH
+deactivate
+```
+
+&nbsp;
+
+#### 3.2. Criando o `Requirements.txt`
+
+**Instalação de bibliotecas e isolamento de dependências**
+
+Para instalar *bibliotecas*, utilizamos o mesmo processo que realizamos para instalar qualquer coisa com o `pip`. No terminal, passamos `pip install` seguido do nome da *biblioteca* ou *módulo*, nesse caso `requests`.
+
+```BASH
+pip install requests
+```
+
+O `pip` é um gerenciador de *módulos* e pacotes do *Python*. A maioria das linguagens tem um gerenciador que auxilia nisso.
+
+No caso do *Python*, existe mais de um, mas o `pip` é o mais conhecido. Quando usamos `pip install` ou `pip uninstall` para instalar ou desinstalar um pacote, só então passamos o nome do pacote.
+
+O pip vem por padrão quando instalamos o Python na máquina.
+
+&nbsp;
+
+Comando para verificar os pacotes instalados no ambiente.
+
+```BASH
+pip freeze
+```
+
+&nbsp;
+
+Comando para enviar saida do comando `pip freeze` para o arquivo `requirements.txt`.
+
+Executar no diretorio raiz do projeto.
+
+```BASH
+pip freeze > requirements.txt
+```

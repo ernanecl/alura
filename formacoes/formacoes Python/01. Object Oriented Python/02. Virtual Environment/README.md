@@ -5,6 +5,50 @@
 &nbsp;
 &nbsp;
 
+#### Ambientes Virtuais Python: Poetry e venv
+
+**O que são ambientes virtuais?**
+
+Imagine que você tenha dois projetos *Python* diferentes, cada um com suas próprias dependências e versões de bibliotecas. Se você instalasse todas as bibliotecas de ambos os projetos em um único ambiente, poderia ocorrer conflitos de versões e causar problemas na execução dos seus projetos.
+
+Ambientes virtuais são como "caixas de areia" isoladas para cada projeto *Python*. Cada ambiente virtual tem seu próprio interpretador *Python* e suas próprias instalações de pacotes. Isso significa que pode ter diferentes versões de uma mesma biblioteca em projetos diferentes sem que elas interfiram umas nas outras.
+
+&nbsp;
+
+**Por que usar ambientes virtuais?**
+
+- **Isolamento de projetos:** Evita conflitos de versões de pacotes.
+- **Gerenciamento de dependências:** Permite instalar e gerenciar pacotes específicos para cada projeto.
+- **Reprodutibilidade:** Facilita a criação de ambientes idênticos em diferentes máquinas.
+- **Organização:** Mantém seus projetos mais organizados e fáceis de gerenciar.
+
+&nbsp;
+
+**Poetry e venv: duas ferramentas populares**
+
+- **venv:** É um módulo padrão do *Python* que permite criar *ambientes virtuais* de forma simples. Ele é uma ferramenta básica e eficaz para quem está começando.
+- **Poetry:** É uma ferramenta mais recente e completa para gerenciamento de dependências e criação de *ambientes virtuais*. Ela oferece funcionalidades adicionais como:
+    - **Gerenciamento de dependências:** Define as dependências do seu projeto em um arquivo `pyproject.toml` e instala todas as dependências de uma vez.
+    - **Criação de ambientes virtuais:** Cria um *ambiente virtual* isolado para o seu projeto.
+    - **Geração de arquivos de requisitos:** Gera um arquivo `requirements.txt` para compartilhar as dependências do seu projeto.
+    - **Geração de pacotes:** Permite criar pacotes *Python* para distribuir seu projeto.
+
+&nbsp;
+
+**Quando usar cada ferramenta?**
+
+- **venv:** Ideal para projetos simples e quando você já tem experiência em gerenciar dependências manualmente.
+- **Poetry:** Recomendado para projetos mais complexos, onde você precisa de um controle mais preciso sobre as dependências e deseja automatizar o processo de criação de *ambientes virtuais*.
+
+&nbsp;
+
+**Em resumo:**
+
+Ambientes virtuais são essenciais para organizar seus projetos Python e evitar conflitos de dependências. O Poetry é uma ferramenta mais completa e recomendada para a maioria dos projetos, enquanto o venv é uma opção mais básica para projetos simples.
+
+&nbsp;
+&nbsp;
+
 #### Venv
 
 O Venv é uma ferramenta integrada ao Python que permite criar ambientes virtuais isolados.

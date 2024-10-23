@@ -507,10 +507,10 @@ print(repr(pessoa1))  # Saída: Pessoa(nome='Sofia', idade=30)
 
 **Exercicios**
 
-```PY
-# EXERCICIO 1
-print('1 - Implemente uma classe chamada Carro com os atributos básicos, como modelo, cor e ano. Crie uma instância dessa classe e atribua valores aos seus atributos.')
 
+01. Implemente uma classe chamada Carro com os atributos básicos, como modelo, cor e ano. Crie uma instância dessa classe e atribua valores aos seus atributos.')
+
+```PY
 class Carro:
     
     carros = []
@@ -528,12 +528,13 @@ class Carro:
 
 carro1 = Carro('Civic','Sedan','Preto','2017')
 Carro.listar_carros()
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 2
-print('\n2 - Crie uma classe chamada Restaurante com os atributos nome, categoria, ativo e crie mais 2 atributos. Instancie um restaurante e atribua valores aos seus atributos.')
+02. Crie uma classe chamada Restaurante com os atributos nome, categoria, ativo e crie mais 2 atributos. Instancie um restaurante e atribua valores aos seus atributos.')
 
+```PY
 class Restaurante0:
     nome = ''
     categoria = ''
@@ -554,12 +555,13 @@ print(restaurantes0)
 print(dir(restaurantes0))
 print(vars(restaurantes0[0]))
 print(vars(restaurante0))
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 3
-print('\n\n3 - Modifique a classe Restaurante adicionando um construtor que aceita nome e categoria como parâmetros e inicia ativo como False por padrão. Crie uma instância utilizando o construtor.')
+03. Modifique a classe Restaurante adicionando um construtor que aceita nome e categoria como parâmetros e inicia ativo como False por padrão. Crie uma instância utilizando o construtor.')
 
+```PY
 class Restaurante1:
     restaurantes = []
 
@@ -578,13 +580,13 @@ class Restaurante1:
 restaurante1 = Restaurante1('Santa Marmita', 'Fast Food','4.5 estrelas','1989')
 
 Restaurante1.listar_restaurantes()
+```
 
+&nbsp;
 
-#####################################################################################################################################################################################
+04. Adicione um método especial __str__ à classe Restaurante para que, ao imprimir uma instância, seja exibida uma mensagem formatada com o nome e a categoria. Exiba essa mensagem para uma instância de restaurante.')
 
-# EXERCICIO 4
-print('\n\n4 - Adicione um método especial __str__ à classe Restaurante para que, ao imprimir uma instância, seja exibida uma mensagem formatada com o nome e a categoria. Exiba essa mensagem para uma instância de restaurante.')
-
+```PY
 class Restaurante2:
     restaurantes = []
 
@@ -602,12 +604,13 @@ class Restaurante2:
 restaurante2 = Restaurante2('Bora comer', 'Brasileira','4.5 estrelas','1989')
 
 print(restaurante2)
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 5
-print('\n\n5 -Crie uma classe chamada Cliente e pense em 4 atributos. Em seguida, instancie 3 objetos desta classe e atribua valores aos seus atributos através de um método construtor.')
+05. Crie uma classe chamada Cliente e pense em 4 atributos. Em seguida, instancie 3 objetos desta classe e atribua valores aos seus atributos através de um método construtor.')
 
+```PY
 class Cliente:
     clientes = []
 
@@ -907,12 +910,11 @@ Porque a lista de *restaurantes* é um *atributo* da *classe*, não de cada *ins
 
 &nbsp;
 
-#### Exercicios
+**Exercicios**
+
+01. Crie uma classe chamada ContaBancaria com um construtor que aceita os parâmetros titular e saldo. Inicie o atributo ativo como False por padrão.')
 
 ```PY
-# EXERCICIO 1
-print('1. Crie uma classe chamada ContaBancaria com um construtor que aceita os parâmetros titular e saldo. Inicie o atributo ativo como False por padrão.')
-
 class ContaBancaria1:
     def __init__(self, titular, saldo):
         self.titular = titular
@@ -922,12 +924,13 @@ class ContaBancaria1:
 pessoa1_conta_bancaria1 = ContaBancaria1('Raissa',200)
 
 print(f'A conta de {pessoa1_conta_bancaria1.titular} esta com status {pessoa1_conta_bancaria1._ativo} e tem saldo de {pessoa1_conta_bancaria1.saldo} bitcoins')
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 2
-print('\n2. Na classe ContaBancaria, adicione um método especial __str__ que retorna uma mensagem formatada com o titular e o saldo da conta. Crie duas instâncias da classe e imprima essas instâncias.')
+02. Na classe ContaBancaria, adicione um método especial __str__ que retorna uma mensagem formatada com o titular e o saldo da conta. Crie duas instâncias da classe e imprima essas instâncias.')
 
+```PY
 class ContaBancaria2:
     def __init__(self, titular, saldo):
         self.titular = titular
@@ -942,12 +945,13 @@ pessoa2_conta_bancaria2 = ContaBancaria2('Aada', 100)
 
 print(pessoa1_conta_bancaria2)
 print(pessoa2_conta_bancaria2)
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 3
-print('\n3. Adicione um método de classe chamado ativar_conta à classe ContaBancaria que define o atributo ativo como True. Crie uma instância da classe, chame o método de classe e imprima o valor de ativo.')
+03. Adicione um método de classe chamado ativar_conta à classe ContaBancaria que define o atributo ativo como True. Crie uma instância da classe, chame o método de classe e imprima o valor de ativo.')
 
+```PY
 class ContaBancaria3:
     def __init__(self, titular, saldo):
         self.titular = titular
@@ -966,12 +970,13 @@ print(pessoa1_conta_bancaria3)
 
 ContaBancaria3.ativar_conta(pessoa1_conta_bancaria3)
 print(pessoa1_conta_bancaria3)
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 4
-print('\n4. Refatore a classe ContaBancaria para utilizar a abordagem "pythonica" na criação de atributos. Utilize propriedades, se necessário.')
+04. Refatore a classe ContaBancaria para utilizar a abordagem "pythonica" na criação de atributos. Utilize propriedades, se necessário.')
 
+```PY
 class ContaBancaria4:
     def __init__(self, titular, saldo):
         self._titular = titular
@@ -996,12 +1001,13 @@ class ContaBancaria4:
     @property
     def ativo(self):
         return self._ativo
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 5
-print('\n5. Crie uma instância da classe e imprima o valor da propriedade titular.')
+05. Crie uma instância da classe e imprima o valor da propriedade titular.')
 
+```PY
 class ContaBancaria5:
     def __init__(self, titular, saldo):
         self._titular = titular
@@ -1029,12 +1035,13 @@ class ContaBancaria5:
 
 pessoa1_conta_bancaria5 = ContaBancaria5('Sofia', 450)
 print(f'O titular da conta bancaria: {pessoa1_conta_bancaria5.titular}')
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 6
-print('\n6. Crie uma classe chamada ClienteBanco com um construtor que aceita 5 atributos. Instancie 3 objetos desta classe e atribua valores aos seus atributos através do método construtor.')
+06. Crie uma classe chamada ClienteBanco com um construtor que aceita 5 atributos. Instancie 3 objetos desta classe e atribua valores aos seus atributos através do método construtor.')
 
+```PY
 class ClienteBanco1:
     def __init__(self, nome, conta, idade, origem, profissao):
         self._nome = nome.title()
@@ -1391,30 +1398,29 @@ Alteracao do codigo com comentario.
 
     # código omitido
 ```
-#### Exercicios
 
-Os exercicios desse capitulo teve a necessidade de criar arquivos adicionais, identificados no inicios do codigo.
+&nbsp;
 
-**`exercicios.py`**
+**Exercicios**
+
+***`importando_classe_e_composicao/exercicios.py`***
+
+01. Crie uma classe chamada Livro com um construtor que aceita os parâmetros titulo, autor e ano_publicacao. Inicie um atributo chamado disponivel como True por padrão.')
 
 ```PY
-# 05. importando_classe_e_composicao/exercicios.py
-
-# EXERCICIO 1
-print('1. Crie uma classe chamada Livro com um construtor que aceita os parâmetros titulo, autor e ano_publicacao. Inicie um atributo chamado disponivel como True por padrão.')
-
 class Livro1:
     def __init__(self, titulo, autor, ano_publicacao):
         self._titulo = titulo
         self._autor = autor
         self._ano_publicacao = ano_publicacao
         self._disponivel = True
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 2
-print('\n2. Na classe Livro, adicione um método especial str que retorna uma mensagem formatada com o título, autor e ano de publicação do livro. Crie duas instâncias da classe Livro e imprima essas instâncias.')
+02. Na classe Livro, adicione um método especial str que retorna uma mensagem formatada com o título, autor e ano de publicação do livro. Crie duas instâncias da classe Livro e imprima essas instâncias.')
 
+```PY
 class Livro2:
     def __init__(self, titulo, autor, ano_publicacao):
         self._titulo = titulo
@@ -1430,12 +1436,13 @@ livro2_sa3 = Livro2('O Senhor dos Anéis - O Retorno do Rei', 'J.R.R. Tolkien', 
 livro2_gt5 = Livro2('As Crônicas de Gelo e Fogo - A Dança dos Dragões', 'George R.R. Martin', 2011)
 
 print(f'\n{livro2_hp3}\n{livro2_sa3}\n{livro2_gt5}')
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 3
-print('\n\n3. Adicione um método de instância chamado emprestar à classe Livro que define o atributo disponivel como False. Crie uma instância da classe, chame o método emprestar e imprima se o livro está disponível ou não.')
+03. Adicione um método de instância chamado emprestar à classe Livro que define o atributo disponivel como False. Crie uma instância da classe, chame o método emprestar e imprima se o livro está disponível ou não.')
 
+```PY
 class Livro3:
     def __init__(self, titulo, autor, ano_publicacao):
         self._titulo = titulo
@@ -1455,12 +1462,13 @@ livro3_hp4 = Livro3('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
 livro3_hp4.emprestar()
 
 print(livro3_hp4)
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 4
-print('\n\n4. Adicione um método estático chamado verificar_disponibilidade à classe Livro que recebe um ano como parâmetro e retorna uma lista dos livros disponíveis publicados nesse ano.')
+04. Adicione um método estático chamado verificar_disponibilidade à classe Livro que recebe um ano como parâmetro e retorna uma lista dos livros disponíveis publicados nesse ano.')
 
+```PY
 class Livro4:
     livros = []
 
@@ -1496,39 +1504,43 @@ livro4_hp1 = Livro4("Harry Potter e a Pedra Filosofal", "J.K. Rowling", 1997)
 
 livros_2000 = Livro4.verificar_disponibilidade(2000)
 print(livros_2000)
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 5
-print('\n5. Crie um arquivo chamado biblioteca.py e importe a classe Livro neste arquivo.')
+05. Crie um arquivo chamado biblioteca.py e importe a classe Livro neste arquivo.')
 
+```PY
 from models.livros import Livro
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 6
-print('\n6. No arquivo biblioteca.py, empreste o livro chamando o método emprestar e imprima se o livro está disponível ou não após o empréstimo.')
+06. No arquivo biblioteca.py, empreste o livro chamando o método emprestar e imprima se o livro está disponível ou não após o empréstimo.')
 
+```PY
 livro_hp4 = Livro('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
 livro_hp4.emprestar()
 
 print(livro_hp4)
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 7
-print('\n7. No arquivo biblioteca.py, utilize o método estático verificar_disponibilidade para obter a lista de livros disponíveis publicados em um ano específico.')
+07. No arquivo biblioteca.py, utilize o método estático verificar_disponibilidade para obter a lista de livros disponíveis publicados em um ano específico.')
 
+```PY
 ano_especifico = 2000
 livros_disponiveis_ano = Livro.verificar_disponibilidade(ano_especifico)
 
 print(livros_2000)
+```
 
-#####################################################################################################################################################################################
+&nbsp;
 
-# EXERCICIO 8
-print('\n8. Crie um arquivo chamado main.py, importe a classe Livro e, no arquivo main.py, instancie dois objetos da classe Livro e exiba a mensagem formatada utilizando o método str.')
+08. Crie um arquivo chamado main.py, importe a classe Livro e, no arquivo main.py, instancie dois objetos da classe Livro e exiba a mensagem formatada utilizando o método str.')
 
+```PY
 from models.livros import Livro
 
 livro_hp4 = Livro('Harry Potter e o Cálice de Fogo', 'J.K. Rowling', 2000)
