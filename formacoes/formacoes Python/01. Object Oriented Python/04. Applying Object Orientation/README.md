@@ -849,7 +849,7 @@ Restaurante.listar_restaurantes()
 
 ***O que é `@classmethod`?***
 
-O *decorador* `@classmethod` em *Python* transforma um *método* de *classe* em um *método* que pode ser chamado diretamente na *classe*, sem a necessidade de *instanciar* um *objeto*. Em outras palavras, ele permite que acesse e modifique *atributos* de *classe* diretamente a partir da *classe*, sem precisar de uma *instância* específica.
+O *decorador* `@classmethod` em *Python* transforma um *método de classe* em um *método* que pode ser chamado diretamente na *classe*, sem a necessidade de *instanciar* um *objeto*. Em outras palavras, ele permite que acesse e modifique *atributos* de *classe* diretamente a partir da *classe*, sem precisar de uma *instância* específica.
 
 &nbsp;
 
@@ -1620,7 +1620,6 @@ print(livros_2000)
 Livro.listar_livros()
 print(livro_hp4.disponibilidade)
 ```
-
 
 &nbsp;
 &nbsp;

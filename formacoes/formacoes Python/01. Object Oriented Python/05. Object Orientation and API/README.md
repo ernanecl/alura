@@ -13,7 +13,7 @@ O que sera trabalhado durante o treinamento:
 
 Para esse estudo continuaremos com o projeto desenvolvido no treinamento **Python: aplicando a Orientação a Objetos**.
 
-### 01. Heranca
+### 1 Heranca
 
 Neste capitulo foi criado novas *classes* com seus respectivos arquivos.
 
@@ -417,7 +417,7 @@ print(moto3)
 &nbsp;
 &nbsp;
 
-### 02. Polimorfismo e metodo abstrato
+### 2 Polimorfismo e metodo abstrato
 
 **Topicos do capitulo:**
 
@@ -445,7 +445,7 @@ Segue a arquitetura do sistema atual com os itens criados ou alterados:
 
 &nbsp;
 
-#### 2.1. Metodos para adicionar itens
+#### 2.1 Metodos para adicionar itens
 
 No arquivo `restaurante.py`, adicionamos os *metodos* `adicionar_bebida_cardapio` e `adicionar_prato_cardapio` na *classe* `Restaurante`.
 Tambem adicionamos um novo *atributo* `self._cardapio = []` ao *metodo construtor*.
@@ -489,7 +489,7 @@ restaurante_praca.adicionar_prato_cardapio(prato_pao)
 
 &nbsp;
 
-#### 2.2. Refatoracao
+#### 2.2 Refatoracao
 
 A refatoracao feita foi diminuir *metodos* na *classe* `Restaurante`, eliminando os *metodos* `adicionar_bebida_cardapio` e `adicionar_prato_cardapio` para adicionar o *metodo* `adicionar_cardapio`.
 
@@ -532,7 +532,7 @@ restaurante_praca.adicionar_cardapio(prato_pao)
 
 &nbsp;
 
-#### 2.3. Exibindo o cardapio
+#### 2.3 Exibindo o cardapio
 
 Foi criado uma *classe* `exibir_cardapio`, nela usamos o *parametro especial* `self`, como o laco de repeticao `for` e a condicional `if/else`, tambem usou as novas funcoes `enumerate` e `hasattr`.
 
@@ -602,7 +602,7 @@ Foi criado uma *classe* `exibir_cardapio`, nela usamos o *parametro especial* `s
 - **`item`:** O objeto que será verificado.
 - **`'descricao':`** O nome do atributo que queremos verificar.
 
-#### 2.4. Metodos abstrato
+#### 2.4 Metodos abstrato
 
 Implementado o *metodo abstrado* no arquivo `item_cardapio.py`.
 
@@ -689,7 +689,7 @@ Em programação *orientada a objetos*, um *método abstrato* é um *método* de
 
 &nbsp;
 
-#### 2.5. Polimorfismo
+#### 2.5 Polimorfismo
 
 Aplicacao dos metodos `aplicar_desconto` nas classes `Prato` e `Bebidas`, tambem teve a aplicacao do uso do metodo no  arquivo `app.py`.
 
@@ -912,13 +912,13 @@ print(f"Carro 3: {carro3.marca} {carro3.modelo}, Cor: {carro3.cor}")
 &nbsp;
 &nbsp;
 
-### 3. Ambientes Virtuais
+### 3 Ambientes Virtuais
 
 *Ambientes virtuais* são essenciais para organizar projetos *Python* e evitar conflitos de dependências, isolando o projeto. O *Poetry* é uma ferramenta mais completa e recomendada para a maioria dos projetos, enquanto o *venv* é uma opção mais básica para projetos simples.
 
 &nbsp;
 
-#### 3.1. Venv - Ambiente Virtual Python
+#### 3.1 Venv - Ambiente Virtual Python
 
 Nesse capitulo vamos trabalhar com a ferramenta `venv`, ele é uma ferramenta padrao do Python e nao tem a necessidade de instalar para uso.
 
@@ -1028,7 +1028,7 @@ deactivate
 
 &nbsp;
 
-#### 3.2. Criando o `Requirements.txt`
+#### 3.2 Criando o `Requirements.txt`
 
 **Instalação de bibliotecas e isolamento de dependências**
 
@@ -1060,4 +1060,315 @@ Executar no diretorio raiz do projeto.
 
 ```BASH
 pip freeze > requirements.txt
+```
+
+&nbsp;
+&nbsp;
+
+### 4 Requests, JSON and files
+
+#### 4.1 API
+
+**O que é uma API?**
+
+*API* significa *Interface de Programação de Aplicações* (*Application Programming Interface*). Em termos simples, é um conjunto de regras e especificações que permite que diferentes softwares se comuniquem e troquem informações entre si. Imagine uma *API* como um menu em um restaurante: você (o programa) faz um pedido (a *requisição*), o garçom (a *API*) leva o pedido para a cozinha (o *servidor*) e traz de volta o prato pronto (a *resposta*).
+
+&nbsp;
+
+**Por que as APIs são importantes?**
+
+- **Reutilização de código:** Em vez de reescrever funcionalidades do zero, pode utilizar *APIs* já existentes.
+- **Integração de sistemas:** Permite que diferentes sistemas se conectem e trabalhem em conjunto.
+- **Desenvolvimento mais rápido:** Acelera o processo de desenvolvimento, pois pode se concentrar em funcionalidades específicas.
+- **Acesso a dados e serviços:** Permite que acesse dados e serviços de outras empresas, como mapas, previsão do tempo, etc.
+
+&nbsp;
+
+**APIs em Python**
+
+*Python*, com sua sintaxe clara e concisa, é uma linguagem excelente para criar e consumir *APIs*. A comunidade *Python* oferece diversas bibliotecas e *frameworks* que facilitam o desenvolvimento de *APIs*, como:
+
+- **Flask:** Um *microframework* leve e flexível, ideal para criar *APIs* pequenas e médias.
+- **Django REST framework:** Um *framework* poderoso e completo para construir *APIs RESTful* em larga escala.
+- **FastAPI:** Um *framework* moderno e *high-performance*, com foco em desenvolvimento rápido e conciso.
+
+&nbsp;
+
+**Por que usar Python para APIs?**
+
+- **Facilidade de uso:** A sintaxe do *Python* é clara e intuitiva, facilitando o aprendizado e o desenvolvimento.
+- **Grande comunidade:** A comunidade *Python* é vasta e oferece diversas bibliotecas e recursos para desenvolvimento de *APIs*.
+- **Versatilidade:** *Python* pode ser utilizado para criar *APIs* de diversos tipos, desde simples *APIs RESTful* até *APIs* mais complexas com funcionalidades avançadas.
+- **Integração com outras tecnologias:** *Python* se integra facilmente com outras tecnologias, como bancos de dados, sistemas de filas e serviços em nuvem.
+
+&nbsp;
+
+**Exemplo simples de uma API em Python usando Flask:**
+
+```PY
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run()
+```
+
+Este código cria uma *API* simples que retorna a mensagem `Hello, World!` quando acessada.
+
+&nbsp;
+
+**Conceitos importantes em APIs Python:**
+
+- **Requisições HTTP:** As *APIs* geralmente usam o protocolo *HTTP* para se comunicar. As requisições *HTTP* mais comuns são *GET*, *POST*, *PUT* e *DELETE*.
+- **Respostas HTTP:** As *APIs* retornam respostas *HTTP* com um código de status (por exemplo, *200* para *sucesso*) e um corpo (dados em formato *JSON* ou *XML*).
+- **Rotas:** As rotas definem os endereços (*URLs*) que podem ser acessados na *API*.
+- **Recursos:** Os recursos são os objetos que a *API* expõe, como usuários, produtos, etc.
+- **Métodos HTTP:** Os *métodos HTTP* (*GET*, *POST*, *PUT*, *DELETE*) são usados para realizar operações nos recursos.
+
+&nbsp;
+
+**Em resumo:**
+
+As *APIs* são uma parte fundamental do desenvolvimento de *software* moderno. *Python*, com sua sintaxe simples e rica ecossistema, é uma excelente escolha para criar *APIs* robustas e escaláveis. Ao aprender sobre *APIs* em *Python*, você estará abrindo portas para um mundo de possibilidades, desde a criação de aplicativos web até a integração de sistemas complexos.
+
+&nbsp;
+
+#### 4.2 Requisicao - Request
+
+Nesta etapa trabalhamos com a boblioteca `request` para buscar dados de uma *URL* com a funcao *GET*. 
+
+Dentro do ambiente virtual criamos um arquivo com nome `app.py`.
+
+**`virtual_environment/app.py`**
+
+```PY
+import requests # Importando a biblioteca requests para realizar requisições HTTP
+
+url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'  # URL da API que contém os dados dos restaurantes
+response = requests.get(url)  # Fazendo uma requisição GET para a URL e armazenando a resposta em 'response'
+
+print(response)  # Imprimindo a resposta completa (para fins de depuração)
+
+if response.status_code == 200:  # Verificando se a requisição foi bem-sucedida (código de status 200)
+    dados_json = response.json()  # Convertendo a resposta JSON para um dicionário Python
+    print(dados_json) # Imprimindo a resposta JSON ema um dicionário Python
+else:
+    print(f'O erro foi {response.status_code}')  # Imprimindo o código de status do erro caso a requisição falhe
+```
+
+Se executarmos o codigo sem a condicional `if`/`else` para testar a *URL*, aguardamos um retorno `<Response [200]>`.
+
+&nbsp;
+
+**A Biblioteca Requests do Python: Sua Porta de Entrada para o Mundo das APIs**
+
+A biblioteca *Requests* é uma ferramenta poderosa e fácil de usar em *Python*, especialmente projetada para simplificar a interação com *APIs* e serviços *web*. Com ela, podemos realizar requisições *HTTP* de forma intuitiva e eficiente, sem se preocupar com os detalhes técnicos da comunicação entre sistemas.
+
+&nbsp;
+
+**Por que usar a biblioteca Requests?**
+
+- **Sintaxe simples e clara:** A sintaxe da *Requests* é muito semelhante à forma como fazemos solicitações na *web*, tornando o código mais legível e fácil de entender.
+- **Versatilidade:** Permite realizar todos os tipos de requisições *HTTP* (*GET*, *POST*, *PUT*, *DELETE*, etc.), além de lidar com *headers*, *cookies*, *autenticação* e muito mais.
+- **Gerenciamento de respostas:** Facilita o processamento das respostas, permitindo acessar o conteúdo, os *headers* e o *status* da requisição.
+- **Extensibilidade:** Pode ser facilmente estendida com *plugins* para adicionar funcionalidades personalizadas.
+
+&nbsp;
+
+**Como funciona a Requests?**
+
+A ideia básica é simples: você cria um objeto de requisição e envia para um determinado *URL*. A resposta é então retornada como um objeto que podemos analisar.
+
+Exemplo:
+
+```PY
+import requests
+
+response = requests.get('https://api.github.com/users/ernanecl')
+print(response.json())
+```
+
+Neste exemplo, fazemos uma requisição *GET* para a *API* do *GitHub* para obter informações sobre o usuário "ernanecl". A resposta é um objeto *JSON* que contém os dados do usuário.
+
+&nbsp;
+
+**Principais funcionalidades da Requests:**
+
+- **Métodos HTTP:** *GET*, *POST*, *PUT*, *DELETE*, *HEAD*, *OPTIONS*
+- **Parâmetros de consulta:** Adiciona parâmetros à *URL* da requisição
+- **Dados de formulário:** Envia dados em formulários
+- **Headers:** Define cabeçalhos personalizados
+- **Cookies:** Manipula *cookies*
+- **Autenticação:** Suporta diversos mecanismos de *autenticação* (*basic*, *digest*, *OAuth*, etc.)
+- **Timeout:** Define um tempo limite para as requisições
+- **Proxy:** Utiliza *proxies* para fazer as requisições
+
+&nbsp;
+
+**Casos de uso comuns:**
+
+- **Consumir APIs:** Interagir com *APIs* de serviços como o *GitHub*, *Twitter*, *Google Maps*, etc.
+- **Testar APIs:** Verificar se uma *API* está funcionando corretamente e retornar os dados esperados.
+- **Automatizar tarefas:** Realizar tarefas repetitivas, como coletar dados de um site ou fazer login em um sistema.
+- **Raspagem de dados:** Extrair dados de sites *HTML*.
+
+&nbsp;
+
+**Em resumo:**
+
+A biblioteca *Requests* é uma ferramenta essencial para qualquer desenvolvedor *Python* que precise interagir com *APIs* e serviços *web*. Sua simplicidade, flexibilidade e extensibilidade a tornam uma escolha popular para uma ampla gama de aplicações.
+
+&nbsp;
+
+#### 4.3 Filtrando dados
+
+```PY
+# ... (resto do seu código)
+
+if response.status_code == 200:  # Verificando se a requisição foi bem-sucedida (código de status 200)
+    # ... (resto do seu código)
+   dados_restaurante = {}  # Criando um dicionário para armazenar os dados dos restaurantes, organizados por nome
+
+    # Iterando sobre os dados JSON
+    for item in dados_json: 
+        nome_do_restaurante = item['Company'] # Obtendo o nome do restaurante a partir do item atual
+
+        # Verificando se o restaurante já existe no dicionário
+        if nome_do_restaurante not in dados_restaurante:
+            # Se não existe, cria uma nova entrada no dicionário
+            dados_restaurante[nome_do_restaurante] = []
+
+        # Adiciona um novo item ao restaurante no dicionário
+        dados_restaurante[nome_do_restaurante].append({
+            "item": item['Item'],
+            "price": item['price'],
+            "description": item['description']
+        })
+
+    print(dados_restaurante)  # Imprimindo o dicionário final com os dados dos restaurantes organizados por nome
+# ... (resto do seu código)
+```
+
+**Explicações adicionais:**
+
+- **`dados_restaurante`:** Esse dicionário está sendo usado para agrupar os itens de cada restaurante. As chaves do dicionário são os nomes dos restaurantes, e os valores são listas de dicionários, onde cada dicionário representa um item do menu.
+- **`if nome_do_restaurante not in dados_restaurante`:** Essa condição verifica se o nome do restaurante atual já existe como uma chave no dicionário dados_restaurante. Se não existir, uma nova entrada é criada.
+- **`dados_restaurante[nome_do_restaurante].append(...)`:** Essa linha adiciona um novo item ao final da lista correspondente ao restaurante atual. O novo item é um dicionário com as informações do item do menu.
+
+&nbsp;
+
+**Por que `dados_json = response.json()` cria um dicionário?**
+
+Para entendermos por que a linha `dados_json = response.json()` converte a resposta da *API* em um *dicionário*, precisamos entender um pouco sobre como os dados são estruturados e transmitidos pela internet.
+
+&nbsp;
+
+**JSON: A Linguagem dos Dados na Web**
+
+- **JSON (JavaScript Object Notation):** É um formato leve para troca de dados, que se baseia em pares chave-valor. Ele é amplamente utilizado para transmitir dados entre um servidor e um cliente, como em *APIs REST*.
+- **Estrutura:** *JSON* utiliza chaves *{}* para delimitar objetos (similares a *dicionários* em *Python*) e colchetes *[]* para delimitar arrays (similares a *listas* em *Python*).
+
+&nbsp;
+
+**O Método `.json()`**
+
+- **Conversão:** O método `.json()` do objeto `response` é responsável por converter a string *JSON* retornada pela *API* em uma estrutura de dados *Python* equivalente.
+- **Dicionário:** Como a estrutura básica do *JSON* é muito similar a um dicionário em *Python*, a forma mais natural de representar um objeto *JSON* em *Python* é utilizando um dicionário.
+
+&nbsp;
+
+**Entendendo a Linha de Código `dados_restaurante[nome_do_restaurante] = []`**
+
+**O que essa linha faz:**
+
+- **`dados_restaurante[nome_do_restaurante] = []`:** Essa linha está *criando uma nova chave* no *dicionário* `dados_restaurante` e associando a ela uma lista vazia.
+
+&nbsp;
+
+**Por que uma lista e não um dicionário?**
+
+- **Organização dos dados:** A ideia aqui é agrupar todos os itens de um mesmo restaurante em uma lista. Cada item do menu será um dicionário dentro dessa lista.
+- **Flexibilidade:** Utilizar uma lista permite adicionar novos itens ao restaurante de forma simples, apenas adicionando novos dicionários à lista.
+
+&nbsp;
+
+**Por que o `nome_do_restaurante` antes do `=`?**
+
+- **Acesso a um elemento específico:** Quando você utiliza colchetes `[]` após o nome do dicionário, você está acessando ou criando um elemento com a chave especificada dentro daquele dicionário.
+- **Criação de uma nova chave:** Se a chave ainda não existir, ela será criada e o valor à direita do `=` será atribuído a ela.
+
+&nbsp;
+
+Exemplo prático:
+
+Imagine que o primeiro restaurante encontrado seja "Restaurante X". Após executar essa linha, o dicionário `dados_restaurante` ficará assim:
+
+```PY
+dados_restaurante = {
+    "Restaurante X": []
+}
+```
+
+&nbsp;
+
+**Por que não `dados_restaurante = {nome_do_restaurante}`?**
+
+- **Sobrescrita do dicionário:** Se você fizesse dados_restaurante = {nome_do_restaurante}, você estaria substituindo todo o dicionário por um novo dicionário com apenas uma chave. Isso faria com que você perdesse todos os dados já adicionados anteriormente.
+- **Estrutura inadequada:** A ideia é ter um dicionário onde as chaves são os nomes dos restaurantes e os valores são listas de itens. Criar um dicionário com apenas uma chave e um valor não atenderia a essa necessidade.
+
+&nbsp;
+
+**Em resumo:**
+
+- **Criando uma nova chave:** Ao utilizar `dados_restaurante[nome_do_restaurante] = []`, você está criando uma nova chave no dicionário `dados_restaurante`.
+- **Associando uma lista:** O valor associado a essa nova chave é uma lista vazia, que servirá para armazenar os itens do restaurante.
+- **Flexibilidade:** A utilização de uma lista permite adicionar novos itens ao restaurante de forma simples e organizada.
+
+&nbsp;
+
+**Para visualizar melhor:**
+
+```PY
+# Após várias iterações do loop
+dados_restaurante = {
+    "Restaurante X": [
+        {"item": "Pizza", "price": 25.99},
+        {"item": "Macarrão", "preco": 19.99}
+    ],
+    "Restaurante Y": [
+        {"item": "Hambúrguer", "price": 15.99},
+        {"item": "Batata frita", "preco": 8.99}
+    ]
+}
+```
+
+Como você pode ver, cada restaurante tem sua própria lista de itens, permitindo uma organização eficiente dos dados.
+
+&nbsp;
+
+#### 4.4 Criando arquivos com Python
+
+```PY
+# ... (resto do seu código)
+import json # Importando o modulo json para trabalhar com dados em formato JSON
+
+# ... (resto do seu código)
+
+# Iteração sobre o dicionário: Inicia um loop for para percorrer todas as chaves e valores do dicionário dados_restaurante.
+# Desempacotamento: A cada iteração, a chave (nome do restaurante) é atribuída à variável nome_do_restaurante e o valor (lista de itens) é atribuído à variável dados.
+for nome_do_restaurante, dados in dados_restaurante.items():
+    nome_do_arquivo = f'{nome_do_restaurante}.json' # string formatada (f-string) para o nome do arquivo, usando o nome do restaurante como base e adicionando a extensão .json
+    # Abre um arquivo para escrita ('w') com o nome gerado anteriormente.
+    # Gerenciamento de recursos: O with garante que o arquivo seja fechado corretamente, mesmo que ocorra alguma exceção.
+    with open(nome_do_arquivo,'w') as arquivo_restaurante:
+        # json.dump(): Função do módulo json que converte um objeto Python (no caso, a lista dados) em uma string JSON e a escreve em um arquivo.
+        # dados: A lista de itens do restaurante atual.
+        # arquivo_restaurante: O arquivo onde os dados serão escritos.
+        # indent=4: Define a indentação do JSON para facilitar a leitura (opcional).
+        json.dump(dados, arquivo_restaurante, indent=4)
 ```
